@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apex Bot — Il bot Discord leggero e potente</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <div class="brand-icon">⚡</div>
+                <span class="brand-name">Apex</span>
+            </div>
+            <div class="nav-links">
+                <a href="#features">Funzionalità</a>
+                <a href="#pricing">Prezzi</a>
+                <a href="#faq">FAQ</a>
+            </div>
+            <a href="#pricing" class="nav-cta">Inizia Gratis</a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-glow"></div>
+        <div class="hero-content">
+            <div class="hero-badge">⚡ Leggero. Veloce. Affidabile.</div>
+            <h1>Il bot Discord che<br><span class="gradient-text">non pesa sul tuo server</span></h1>
+            <p class="hero-subtitle">Musica, AI, moderazione, livelli, ticket, notifiche social e molto altro — tutto in un bot ottimizzato per essere veloce e stabile. Zero lag, zero problemi.</p>
+            <div class="hero-buttons">
+                <a href="#pricing" class="btn btn-primary">
+                    <span>Inizia Gratis</span>
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M6 12l4-4-4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                </a>
+                <a href="#features" class="btn btn-secondary">Scopri di più</a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-number">99.9%</span>
+                    <span class="stat-label">Uptime</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat">
+                    <span class="stat-number">&lt;50ms</span>
+                    <span class="stat-label">Latenza</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat">
+                    <span class="stat-number">3-in-1</span>
+                    <span class="stat-label">Bot multipli</span>
+                </div>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="discord-mockup">
+                <div class="mockup-header">
+                    <div class="mockup-dots">
+                        <span></span><span></span><span></span>
+                    </div>
+                    <span class="mockup-title"># musica</span>
+                </div>
+                <div class="mockup-body">
+                    <div class="mock-message">
+                        <div class="mock-avatar bot">A</div>
+                        <div class="mock-content">
+                            <span class="mock-name">Apex <span class="bot-tag">BOT</span></span>
+                            <div class="mock-embed">
+                                <div class="embed-bar"></div>
+                                <div class="embed-content">
+                                    <div class="embed-title">🎵 Now Playing</div>
+                                    <div class="embed-desc">Blinding Lights — The Weeknd</div>
+                                    <div class="embed-progress">
+                                        <div class="progress-bar"><div class="progress-fill"></div></div>
+                                        <div class="progress-time">1:23 / 3:20</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mock-message">
+                        <div class="mock-avatar user">F</div>
+                        <div class="mock-content">
+                            <span class="mock-name">Federico</span>
+                            <div class="mock-text">/play lofi hip hop</div>
+                        </div>
+                    </div>
+                    <div class="mock-message">
+                        <div class="mock-avatar bot">A</div>
+                        <div class="mock-content">
+                            <span class="mock-name">Apex <span class="bot-tag">BOT</span></span>
+                            <div class="mock-text">✅ Aggiunto alla coda: <strong>Lofi Hip Hop Radio</strong></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section id="features" class="features">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-badge">Funzionalità</span>
+                <h2>Tutto quello che ti serve,<br><span class="gradient-text">niente di superfluo</span></h2>
+                <p>Apex è stato progettato per fare bene le cose importanti, senza appesantire il tuo server.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🎵</div>
+                    <h3>Musica HQ</h3>
+                    <p>YouTube, Spotify, SoundCloud — filtri audio (Bass Boost, Nightcore, 8D), loop, autoplay, coda e volume fino a 150%.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🧠</div>
+                    <h3>AI Integrata</h3>
+                    <p>Chatta con un'intelligenza artificiale avanzata direttamente su Discord. Analisi immagini, memoria conversazioni e risposte naturali.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>Moderazione</h3>
+                    <p>Warn, kick, ban, mute, purge, slowmode e AutoMod con anti-spam, anti-link e anti-caps. Azioni automatiche ai warning.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Livelli & XP</h3>
+                    <p>Sistema di livelli con XP automatici, leaderboard, ruoli automatici per livello e XP doppi per ruoli speciali.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎭</div>
+                    <h3>Ruoli & Welcome</h3>
+                    <p>Reaction roles, auto-role all'entrata, messaggi di benvenuto e addio personalizzabili con variabili dinamiche.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎫</div>
+                    <h3>Ticket System</h3>
+                    <p>Supporto con ticket privati, pannelli cliccabili, ruolo staff dedicato e bug report integrato.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📡</div>
+                    <h3>Notifiche Social</h3>
+                    <p>Monitora canali YouTube e streamer Twitch. Notifiche automatiche quando esce un video o inizia una live.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🤖</div>
+                    <h3>3 Bot in 1</h3>
+                    <p>3 istanze separate per riprodurre musica in 3 canali vocali diversi contemporaneamente. Modalità 24/7.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Ultra Leggero</h3>
+                    <p>Ottimizzato per consumare risorse minime. Latenza sotto i 50ms, zero rallentamenti.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section id="pricing" class="pricing">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-badge">Prezzi</span>
+                <h2>Semplice e trasparente</h2>
+                <p>Inizia gratis. Passa a Premium quando vuoi, senza sorprese.</p>
+            </div>
+            <div class="pricing-grid">
+                <!-- Free -->
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Free</h3>
+                        <div class="price">
+                            <span class="price-amount">€0</span>
+                            <span class="price-period">/ per sempre</span>
+                        </div>
+                        <p class="pricing-desc">Perfetto per iniziare</p>
+                    </div>
+                    <ul class="pricing-features">
+                        <li class="included">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.3 4.3l-7 7L3 8" stroke="#5865F2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            1 Bot
+                        </li>
+                        <li class="included">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.3 4.3l-7 7L3 8" stroke="#5865F2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            Musica Spotify
+                        </li>
+                        <li class="included">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.3 4.3l-7 7L3 8" stroke="#5865F2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            Auto Roles all'entrata
+                        </li>
+                        <li class="included">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.3 4.3l-7 7L3 8" stroke="#5865F2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            3 Reaction Roles
+                        </li>
+                        <li class="excluded">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M12 4L4 12M4 4l8 8" stroke="#4e5058" stroke-width="2" stroke-linecap="round"/></svg>
+                            Shuffle & Loop
+                        </li>
+                        <li class="excluded">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M12 4L4 12M4 4l8 8" stroke="#4e5058" stroke-width="2" stroke-linecap="round"/></svg>
+                            AI Chatbot
+                        </li>
+                        <li class="excluded">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M12 4L4 12M4 4l8 8" stroke="#4e5058" stroke-width="2" stroke-linecap="round"/></svg>
+                            YouTube, SoundCloud, ecc.
+                        </li>
+                        <li class="excluded">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M12 4L4 12M4 4l8 8" stroke="#4e5058" stroke-width="2" stroke-linecap="round"/></svg>
+                            Moderazione & AutoMod
+                        </li>
+                        <li class="excluded">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M12 4L4 12M4 4l8 8" stroke="#4e5058" stroke-width="2" stroke-linecap="round"/></svg>
+                            Livelli & XP
+                        </li>
+                        <li class="excluded">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M12 4L4 12M4 4l8 8" stroke="#4e5058" stroke-width="2" stroke-linecap="round"/></svg>
+                            Ticket & Notifiche Social
+                        </li>
+                        <li class="excluded">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M12 4L4 12M4 4l8 8" stroke="#4e5058" stroke-width="2" stroke-linecap="round"/></svg>
+                            3 Bot multipli
+                        </li>
+                    </ul>
+                    <a href="#" class="btn btn-outline">Inizia Gratis</a>
+                </div>
+
+                <!-- Premium -->
+                <div class="pricing-card featured">
+                    <div class="popular-badge">Più popolare</div>
+                    <div class="pricing-header">
+                        <h3>Premium</h3>
+                        <div class="price">
+                            <span class="price-amount">€2,50</span>
+                            <span class="price-period">/ mese</span>
+                        </div>
+                        <p class="pricing-desc">Tutto sbloccato</p>
+                    </div>
+                    <ul class="pricing-features">
+                        <li class="included">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.3 4.3l-7 7L3 8" stroke="#5865F2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            3 Bot separati
+                        </li>
+                        <li class="included">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.3 4.3l-7 7L3 8" stroke="#5865F2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            Tutte le piattaforme musicali
+                        </li>
+                        <li class="included">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.3 4.3l-7 7L3 8" stroke="#5865F2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            Shuffle, Loop & Filtri Audio
+                        </li>
+                        <li class="included">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.3 4.3l-7 7L3 8" stroke="#5865F2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            AI Chatbot & Analisi Immagini
+                        </li>
+                        <li class="included">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.3 4.3l-7 7L3 8" stroke="#5865F2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            Moderazione completa & AutoMod
+                        </li>
+                        <li class="included">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.3 4.3l-7 7L3 8" stroke="#5865F2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            Livelli, XP & Leaderboard
+                        </li>
+                        <li class="included">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.3 4.3l-7 7L3 8" stroke="#5865F2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            Reaction Roles illimitati
+                        </li>
+                        <li class="included">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.3 4.3l-7 7L3 8" stroke="#5865F2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            Ticket System & Bug Report
+                        </li>
+                        <li class="included">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.3 4.3l-7 7L3 8" stroke="#5865F2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            Notifiche YouTube & Twitch
+                        </li>
+                        <li class="included">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.3 4.3l-7 7L3 8" stroke="#5865F2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            Welcome & Goodbye personalizzati
+                        </li>
+                        <li class="included">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.3 4.3l-7 7L3 8" stroke="#5865F2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            Supporto prioritario
+                        </li>
+                    </ul>
+                    <a href="#" class="btn btn-primary full-width">Abbonati Ora</a>
+                </div>
+
+                <!-- Lifetime -->
+                <div class="pricing-card lifetime">
+                    <div class="lifetime-badge">Best Value</div>
+                    <div class="pricing-header">
+                        <h3>Lifetime</h3>
+                        <div class="price">
+                            <span class="price-amount">€20</span>
+                            <span class="price-period">/ una tantum</span>
+                        </div>
+                        <p class="pricing-desc">Paghi una volta, usi per sempre</p>
+                    </div>
+                    <ul class="pricing-features">
+                        <li class="included">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.3 4.3l-7 7L3 8" stroke="#5865F2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            Tutto di Premium
+                        </li>
+                        <li class="included">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.3 4.3l-7 7L3 8" stroke="#5865F2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            Accesso a vita
+                        </li>
+                        <li class="included">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.3 4.3l-7 7L3 8" stroke="#5865F2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            Tutte le funzionalità future
+                        </li>
+                        <li class="included">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.3 4.3l-7 7L3 8" stroke="#5865F2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            Supporto VIP
+                        </li>
+                        <li class="included highlight">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.3 4.3l-7 7L3 8" stroke="#f0b232" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            Risparmi dopo 8 mesi
+                        </li>
+                    </ul>
+                    <a href="#" class="btn btn-lifetime full-width">Acquista Lifetime</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="faq">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-badge">FAQ</span>
+                <h2>Domande frequenti</h2>
+            </div>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                        <span>Come aggiungo il bot al mio server?</span>
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Clicca su "Inizia Gratis", autorizza il bot con Discord e seleziona il tuo server. Il bot sarà operativo in pochi secondi.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                        <span>Posso passare da Free a Premium in qualsiasi momento?</span>
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Certo! L'upgrade è immediato e non perdi nessuna configurazione già fatta.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                        <span>Cosa significa "3 Bot in 1"?</span>
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Con Premium hai accesso a 3 istanze separate del bot. Questo ti permette di riprodurre musica in 3 canali vocali diversi contemporaneamente.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                        <span>Il Lifetime include le funzionalità future?</span>
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Sì! Ogni nuova funzionalità aggiunta al piano Premium sarà automaticamente inclusa nel tuo accesso Lifetime.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                        <span>Come funzionano i pagamenti?</span>
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Accettiamo pagamenti tramite PayPal e carta di credito. L'abbonamento mensile si rinnova automaticamente e puoi cancellarlo in qualsiasi momento.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <div class="brand-icon">⚡</div>
+                <span class="brand-name">Apex</span>
+            </div>
+            <div class="footer-links">
+                <a href="#">Discord</a>
+                <a href="#">Termini</a>
+                <a href="#">Privacy</a>
+            </div>
+            <p class="footer-copy">&copy; 2026 Apex Bot. Tutti i diritti riservati.</p>
+        </div>
+    </footer>
+</body>
+</html>
