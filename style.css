@@ -941,3 +941,35 @@ a {
         text-align: center;
     }
 }
+
+/* ─── Manage Subscription ─────────────────────────────────── */
+.manage-sub {
+    padding: 100px 0;
+    background: linear-gradient(180deg, transparent 0%, rgba(88, 101, 242, 0.03) 100%);
+}
+
+.manage-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    margin-top: 12px;
+}
+
+.manage-actions .btn-primary {
+    padding: 14px 32px;
+    font-size: 16px;
+}
+
+.manage-note {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin: 0;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .manage-sub {
+        padding: 64px 0;
+    }
+}
