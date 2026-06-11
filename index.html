@@ -24,6 +24,7 @@
                 <a href="#features">Features</a>
                 <a href="#pricing">Pricing</a>
                 <a href="#faq">FAQ</a>
+                <a href="#support">Support</a>
                 <a href="#manage">Manage Subscription</a>
             </div>
             <a href="#pricing" class="nav-cta">Get Started Free</a>
@@ -51,8 +52,8 @@
                 </div>
                 <div class="stat-divider"></div>
                 <div class="stat">
-                    <span class="stat-number">&lt;50ms</span>
-                    <span class="stat-label">Latency</span>
+                    <span class="stat-number">24/7</span>
+                    <span class="stat-label">Always Online</span>
                 </div>
                 <div class="stat-divider"></div>
                 <div class="stat">
@@ -173,7 +174,7 @@
                 <div class="feature-card">
                     <div class="feature-icon">⚡</div>
                     <h3>Ultra Lightweight</h3>
-                    <p>Optimized for minimal resource usage. Latency under 50ms, zero slowdowns.</p>
+                    <p>Optimized for minimal resource usage. Zero slowdowns, instant responses, always online.</p>
                 </div>
             </div>
         </div>
@@ -430,7 +431,7 @@
     </section>
 
     <!-- Support -->
-    <section class="support-banner">
+    <section id="support" class="support-banner">
         <div class="section-container">
             <div class="support-content">
                 <div class="support-icon">💬</div>
@@ -471,5 +472,20 @@
             <p class="footer-copy">&copy; 2026 Apex Bot. All rights reserved.</p>
         </div>
     </footer>
+
+    <script>
+    // Ombra navbar allo scroll
+    const _nav = document.querySelector('.navbar');
+    addEventListener('scroll', () => _nav.classList.toggle('scrolled', scrollY > 10), { passive: true });
+
+    // Scroll-reveal: gli elementi entrano con fade+slide quando diventano visibili
+    const _io = new IntersectionObserver((entries) => {
+        for (const e of entries) {
+            if (e.isIntersecting) { e.target.classList.add('visible'); _io.unobserve(e.target); }
+        }
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.section-header, .feature-card, .pricing-card, .faq-item, .support-cmd, .manage-actions')
+        .forEach(el => { el.classList.add('reveal'); _io.observe(el); });
+    </script>
 </body>
 </html>
