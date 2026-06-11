@@ -1113,6 +1113,46 @@ a {
     color: var(--text-muted);
 }
 
+/* ===== ANIMAZIONI CINEMATICHE ===== */
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--grad-accent);
+    transform-origin: 0 50%;
+    transform: scaleX(0);
+    z-index: 200;
+    pointer-events: none;
+    box-shadow: 0 0 12px var(--accent-glow);
+}
+
+/* Shimmer sul testo gradient del titolo */
+.hero h1 .gradient-text {
+    background-size: 220% 100%;
+    animation: gradient-shift 7s ease-in-out infinite;
+}
+
+@keyframes gradient-shift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+/* Prospettiva per il tilt 3D del mockup */
+.hero-visual {
+    perspective: 1000px;
+}
+
+.discord-mockup {
+    will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero h1 .gradient-text { animation: none; }
+    .discord-mockup { animation: none !important; }
+}
+
 /* ===== RESPONSIVE ===== */
 @media (max-width: 1024px) {
     .hero {

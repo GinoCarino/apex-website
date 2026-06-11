@@ -473,19 +473,110 @@
         </div>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
     <script>
     // Ombra navbar allo scroll
     const _nav = document.querySelector('.navbar');
     addEventListener('scroll', () => _nav.classList.toggle('scrolled', scrollY > 10), { passive: true });
 
-    // Scroll-reveal: gli elementi entrano con fade+slide quando diventano visibili
-    const _io = new IntersectionObserver((entries) => {
-        for (const e of entries) {
-            if (e.isIntersecting) { e.target.classList.add('visible'); _io.unobserve(e.target); }
+    const _reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const _hasGsap = typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined';
+
+    if (_hasGsap && !_reduceMotion) {
+        gsap.registerPlugin(ScrollTrigger);
+
+        // ── Smooth scroll cinematico (Lenis) ──
+        let lenis = null;
+        if (typeof Lenis !== 'undefined') {
+            document.documentElement.style.scrollBehavior = 'auto';
+            lenis = new Lenis({ lerp: 0.11, smoothWheel: true });
+            lenis.on('scroll', ScrollTrigger.update);
+            gsap.ticker.add((t) => lenis.raf(t * 1000));
+            gsap.ticker.lagSmoothing(0);
+            document.querySelectorAll('a[href^="#"]').forEach(a => {
+                a.addEventListener('click', (e) => {
+                    const target = document.querySelector(a.getAttribute('href'));
+                    if (target) { e.preventDefault(); lenis.scrollTo(target, { offset: -72, duration: 1.4 }); }
+                });
+            });
         }
-    }, { threshold: 0.12 });
-    document.querySelectorAll('.section-header, .feature-card, .pricing-card, .faq-item, .support-cmd, .manage-actions')
-        .forEach(el => { el.classList.add('reveal'); _io.observe(el); });
+
+        // ── Barra di avanzamento scroll ──
+        const bar = document.createElement('div');
+        bar.className = 'scroll-progress';
+        document.body.appendChild(bar);
+        gsap.to(bar, { scaleX: 1, ease: 'none', scrollTrigger: { start: 0, end: 'max', scrub: 0.3 } });
+
+        // ── Intro hero al caricamento ──
+        gsap.from('.hero-badge, .hero h1, .hero-subtitle, .hero-buttons, .hero-stats', {
+            y: 44, opacity: 0, duration: 1, ease: 'power3.out', stagger: 0.12, delay: 0.1
+        });
+        const mock = document.querySelector('.discord-mockup');
+        if (mock) {
+            mock.style.animation = 'none';   // il float lo gestisce GSAP (evita conflitti col tilt)
+            gsap.from(mock, { y: 70, opacity: 0, scale: 0.94, duration: 1.2, ease: 'power3.out', delay: 0.4 });
+            gsap.to(mock, { y: -12, duration: 3, ease: 'sine.inOut', yoyo: true, repeat: -1, delay: 1.6 });
+        }
+
+        // ── Parallasse hero: i layer si muovono a velocità diverse uscendo ──
+        gsap.to('.hero-content', {
+            yPercent: -16, opacity: 0.12, scale: 0.96, ease: 'none',
+            scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom 35%', scrub: true }
+        });
+        gsap.to('.hero-visual', {
+            yPercent: -28, ease: 'none',
+            scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true }
+        });
+        gsap.to('.hero-glow', {
+            yPercent: 45, opacity: 0.08, ease: 'none',
+            scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true }
+        });
+
+        // ── Titoli sezione: zoom cinematico che si assesta ──
+        document.querySelectorAll('.section-header').forEach(h => {
+            gsap.fromTo(h, { y: 70, opacity: 0, scale: 1.07 }, {
+                y: 0, opacity: 1, scale: 1, duration: 1, ease: 'power3.out',
+                scrollTrigger: { trigger: h, start: 'top 82%' }
+            });
+        });
+
+        // ── Card: ingresso a cascata ──
+        for (const [sel, stag] of [['.feature-card', 0.07], ['.pricing-card', 0.13], ['.faq-item', 0.06], ['.support-cmd', 0.09], ['.manage-actions', 0]]) {
+            gsap.set(sel, { y: 54, opacity: 0 });
+            ScrollTrigger.batch(sel, {
+                start: 'top 88%',
+                onEnter: (els) => gsap.to(els, {
+                    y: 0, opacity: 1, duration: 0.85, ease: 'power3.out',
+                    stagger: stag, overwrite: true, clearProps: 'transform'
+                })
+            });
+        }
+
+        // ── Tilt 3D del mockup col mouse (solo desktop) ──
+        const hv = document.querySelector('.hero-visual');
+        if (mock && hv && matchMedia('(pointer:fine)').matches) {
+            hv.addEventListener('mousemove', (e) => {
+                const r = hv.getBoundingClientRect();
+                const x = (e.clientX - r.left) / r.width - 0.5;
+                const y = (e.clientY - r.top) / r.height - 0.5;
+                gsap.to(mock, { rotationY: x * 9, rotationX: -y * 9, transformPerspective: 900, duration: 0.5, ease: 'power2.out' });
+            });
+            hv.addEventListener('mouseleave', () => {
+                gsap.to(mock, { rotationY: 0, rotationX: 0, duration: 0.9, ease: 'power3.out' });
+            });
+        }
+    } else {
+        // ── Fallback senza GSAP: reveal con IntersectionObserver ──
+        const _io = new IntersectionObserver((entries) => {
+            for (const e of entries) {
+                if (e.isIntersecting) { e.target.classList.add('visible'); _io.unobserve(e.target); }
+            }
+        }, { threshold: 0.12 });
+        document.querySelectorAll('.section-header, .feature-card, .pricing-card, .faq-item, .support-cmd, .manage-actions')
+            .forEach(el => { el.classList.add('reveal'); _io.observe(el); });
+    }
     </script>
 </body>
 </html>
