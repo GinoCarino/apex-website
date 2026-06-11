@@ -534,23 +534,31 @@
             scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true }
         });
 
-        // ── Titoli sezione: zoom cinematico che si assesta ──
+        // ── Titoli sezione: zoom cinematico, bidirezionale (anche risalendo) ──
         document.querySelectorAll('.section-header').forEach(h => {
             gsap.fromTo(h, { y: 70, opacity: 0, scale: 1.07 }, {
                 y: 0, opacity: 1, scale: 1, duration: 1, ease: 'power3.out',
-                scrollTrigger: { trigger: h, start: 'top 82%' }
+                scrollTrigger: {
+                    trigger: h, start: 'top 85%', end: 'bottom 8%',
+                    toggleActions: 'play reverse play reverse'
+                }
             });
         });
 
-        // ── Card: ingresso a cascata ──
+        // ── Card: cascata bidirezionale — entrano/escono in entrambe le direzioni ──
         for (const [sel, stag] of [['.feature-card', 0.07], ['.pricing-card', 0.13], ['.faq-item', 0.06], ['.support-cmd', 0.09], ['.manage-actions', 0]]) {
             gsap.set(sel, { y: 54, opacity: 0 });
+            const show = (els) => gsap.to(els, {
+                y: 0, opacity: 1, duration: 0.85, ease: 'power3.out',
+                stagger: stag, overwrite: true, clearProps: 'transform'
+            });
             ScrollTrigger.batch(sel, {
-                start: 'top 88%',
-                onEnter: (els) => gsap.to(els, {
-                    y: 0, opacity: 1, duration: 0.85, ease: 'power3.out',
-                    stagger: stag, overwrite: true, clearProps: 'transform'
-                })
+                start: 'top 92%',
+                end: 'bottom 5%',
+                onEnter: show,          // scendendo: entrano dal basso
+                onEnterBack: show,      // risalendo: rientrano dall'alto
+                onLeave: (els) => gsap.to(els, { y: -44, opacity: 0, duration: 0.4, ease: 'power2.in', overwrite: true }),
+                onLeaveBack: (els) => gsap.to(els, { y: 54, opacity: 0, duration: 0.4, ease: 'power2.in', overwrite: true })
             });
         }
 
