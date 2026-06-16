@@ -24,8 +24,8 @@
                 <a href="#features">Features</a>
                 <a href="#pricing">Pricing</a>
                 <a href="#faq">FAQ</a>
-                <a href="#support">Support</a>
                 <a href="#manage">Manage Subscription</a>
+                <a href="#support">Support</a>
             </div>
             <a href="#pricing" class="nav-cta">Get Started Free</a>
         </div>
@@ -481,9 +481,10 @@
     addEventListener('scroll', () => _nav.classList.toggle('scrolled', scrollY > 10), { passive: true });
 
     const _reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const _isMobile = matchMedia('(max-width: 768px)').matches || matchMedia('(pointer: coarse)').matches;
     const _hasGsap = typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined';
 
-    if (_hasGsap && !_reduceMotion) {
+    if (_hasGsap && !_reduceMotion && !_isMobile) {
         gsap.registerPlugin(ScrollTrigger);
 
         // ── Smooth scroll cinematico (Lenis) ──
@@ -574,8 +575,8 @@
                 gsap.to(mock, { rotationY: 0, rotationX: 0, duration: 0.9, ease: 'power3.out' });
             });
         }
-    } else {
-        // ── Fallback senza GSAP: reveal con IntersectionObserver ──
+    } else if (!_isMobile) {
+        // ── Desktop senza GSAP: reveal leggero con IntersectionObserver ──
         const _io = new IntersectionObserver((entries) => {
             for (const e of entries) {
                 if (e.isIntersecting) { e.target.classList.add('visible'); _io.unobserve(e.target); }
@@ -584,6 +585,9 @@
         document.querySelectorAll('.section-header, .feature-card, .pricing-card, .faq-item, .support-cmd, .manage-actions')
             .forEach(el => { el.classList.add('reveal'); _io.observe(el); });
     }
+    // Su MOBILE nessuna animazione scroll: tutti gli elementi restano sempre visibili.
+    // (Le animazioni GSAP nascondono gli elementi con opacity:0 e su touch lo scroll-trigger
+    //  non sempre li riattiva → icone sparite. Su telefono meglio statico e affidabile.)
     </script>
 </body>
 </html>
