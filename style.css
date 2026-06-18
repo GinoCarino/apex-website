@@ -224,6 +224,14 @@ a {
     font-size: 18px;
     box-shadow: 0 4px 16px var(--accent-glow);
 }
+.brand-logo {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    object-fit: contain;
+    display: block;
+    flex-shrink: 0;
+}
 
 .brand-name {
     font-size: 20px;
