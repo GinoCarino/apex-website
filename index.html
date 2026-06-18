@@ -642,9 +642,11 @@
                     chip.appendChild(out);
                     login.replaceWith(chip);
                 }
-                // Abbonato attivo → i bottoni d'acquisto diventano "Invite Apex"
+                // Abbonato attivo → i bottoni diventano "Invite Apex" in base al piano:
+                // lifetime = hai già tutto (entrambi); premium = solo Subscribe (Buy Lifetime resta per l'upgrade).
                 if (d.subscription && d.subscription.active && d.invites && d.invites.bot1) {
-                    ['btnSubscribe', 'btnLifetime'].forEach(function (id) {
+                    var ids = d.subscription.plan === 'lifetime' ? ['btnSubscribe', 'btnLifetime'] : ['btnSubscribe'];
+                    ids.forEach(function (id) {
                         var b = document.getElementById(id);
                         if (!b) return;
                         b.textContent = 'Invite Apex';
