@@ -112,19 +112,24 @@ a {
 .nav-login {
     display: inline-flex;
     align-items: center;
-    gap: 7px;
+    gap: 8px;
+    background: var(--bg-tertiary);
     color: var(--text-secondary);
     font-size: 14px;
     font-weight: 600;
-    padding: 8px 16px;
+    padding: 9px 20px;
     border-radius: 10px;
     border: 1px solid var(--border-hover);
     transition: all 0.2s;
 }
 .nav-login:hover {
+    background: var(--bg-card);
     color: var(--text-primary);
     border-color: var(--accent);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px var(--accent-glow);
 }
+.nav-login svg { opacity: .85; }
 
 .nav-brand {
     display: flex;
