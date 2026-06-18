@@ -325,7 +325,7 @@
                             Priority Support
                         </li>
                     </ul>
-                    <a href="https://dash.apexbot.it/buy?plan=premium" class="btn btn-primary full-width">Subscribe Now</a>
+                    <a id="btnSubscribe" href="https://dash.apexbot.it/buy?plan=premium" class="btn btn-primary full-width">Subscribe Now</a>
                 </div>
 
                 <!-- Lifetime -->
@@ -361,7 +361,7 @@
                             Saves you money after 8 months
                         </li>
                     </ul>
-                    <a href="https://dash.apexbot.it/buy?plan=lifetime" class="btn btn-lifetime full-width">Buy Lifetime</a>
+                    <a id="btnLifetime" href="https://dash.apexbot.it/buy?plan=lifetime" class="btn btn-lifetime full-width">Buy Lifetime</a>
                 </div>
             </div>
         </div>
@@ -612,34 +612,47 @@
         fetch(DASH + '/api/me', { credentials: 'include' })
             .then(function (r) { return r.ok ? r.json() : null; })
             .then(function (d) {
-                if (!d || !d.authenticated || !d.user || !login) return;
+                if (!d || !d.authenticated || !d.user) return;
                 var u = d.user;
-                var chip = document.createElement('div');
-                chip.className = 'nav-user';
-                var av;
-                if (u.avatar) {
-                    av = document.createElement('img');
-                    av.className = 'nav-user-av';
-                    av.src = 'https://cdn.discordapp.com/avatars/' + u.uid + '/' + u.avatar + '.png?size=64';
-                    av.alt = '';
-                } else {
-                    av = document.createElement('span');
-                    av.className = 'nav-user-av nav-user-fallback';
-                    av.textContent = (u.name || '?').slice(0, 1).toUpperCase();
+                if (login) {
+                    var chip = document.createElement('div');
+                    chip.className = 'nav-user';
+                    var av;
+                    if (u.avatar) {
+                        av = document.createElement('img');
+                        av.className = 'nav-user-av';
+                        av.src = 'https://cdn.discordapp.com/avatars/' + u.uid + '/' + u.avatar + '.png?size=64';
+                        av.alt = '';
+                    } else {
+                        av = document.createElement('span');
+                        av.className = 'nav-user-av nav-user-fallback';
+                        av.textContent = (u.name || '?').slice(0, 1).toUpperCase();
+                    }
+                    var name = document.createElement('span');
+                    name.className = 'nav-user-name';
+                    name.textContent = u.name || 'Utente';
+                    var out = document.createElement('a');
+                    out.className = 'nav-user-logout';
+                    out.href = DASH + '/logout?next=' + encodeURIComponent(location.href);
+                    out.title = 'Esci';
+                    out.setAttribute('aria-label', 'Esci');
+                    out.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>';
+                    chip.appendChild(av);
+                    chip.appendChild(name);
+                    chip.appendChild(out);
+                    login.replaceWith(chip);
                 }
-                var name = document.createElement('span');
-                name.className = 'nav-user-name';
-                name.textContent = u.name || 'Utente';
-                var out = document.createElement('a');
-                out.className = 'nav-user-logout';
-                out.href = DASH + '/logout?next=' + encodeURIComponent(location.href);
-                out.title = 'Esci';
-                out.setAttribute('aria-label', 'Esci');
-                out.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>';
-                chip.appendChild(av);
-                chip.appendChild(name);
-                chip.appendChild(out);
-                login.replaceWith(chip);
+                // Abbonato attivo → i bottoni d'acquisto diventano "Invite Apex"
+                if (d.subscription && d.subscription.active && d.invites && d.invites.bot1) {
+                    ['btnSubscribe', 'btnLifetime'].forEach(function (id) {
+                        var b = document.getElementById(id);
+                        if (!b) return;
+                        b.textContent = 'Invite Apex';
+                        b.href = d.invites.bot1;
+                        b.target = '_blank';
+                        b.rel = 'noopener';
+                    });
+                }
             })
             .catch(function () { });
     })();
