@@ -112,24 +112,24 @@ a {
 .nav-login {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 8px;
-    background: var(--bg-tertiary);
-    color: var(--text-secondary);
+    background: var(--grad-accent);
+    color: #fff;
     font-size: 14px;
-    font-weight: 600;
-    padding: 9px 20px;
+    font-weight: 700;
+    line-height: 1;
+    padding: 10px 22px;
     border-radius: 10px;
-    border: 1px solid var(--border-hover);
+    box-shadow: 0 6px 22px var(--accent-glow);
     transition: all 0.2s;
 }
 .nav-login:hover {
-    background: var(--bg-card);
-    color: var(--text-primary);
-    border-color: var(--accent);
     transform: translateY(-1px);
-    box-shadow: 0 6px 20px var(--accent-glow);
+    box-shadow: 0 12px 32px var(--accent-glow);
+    filter: brightness(1.08);
 }
-.nav-login svg { opacity: .85; }
+.nav-login svg { display: block; }
 
 .nav-brand {
     display: flex;
