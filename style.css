@@ -1493,3 +1493,30 @@ a {
     .price-amount { font-size: 40px; }
     .hero-stats { width: 100%; }
 }
+
+/* ===== SUBSCRIPTION DRAWER ===== */
+.sub-overlay { position: fixed; inset: 0; background: rgba(0,0,0,.55); opacity: 0; pointer-events: none; transition: opacity .3s; z-index: 300; }
+.sub-overlay.open { opacity: 1; pointer-events: auto; }
+.sub-drawer {
+    position: fixed; top: 0; left: 0; bottom: 0;
+    width: 380px; max-width: 88vw;
+    background: #0c0e14;
+    border-right: 1px solid var(--border-hover);
+    box-shadow: 8px 0 44px rgba(0,0,0,.55);
+    transform: translateX(-100%);
+    transition: transform .32s cubic-bezier(.2,.8,.2,1);
+    z-index: 301; display: flex; flex-direction: column; overflow-y: auto;
+}
+.sub-drawer.open { transform: none; }
+.sub-drawer-head { display: flex; align-items: center; justify-content: space-between; padding: 20px 22px; border-bottom: 1px solid var(--border); font-size: 18px; font-weight: 700; }
+.sub-close { background: transparent; border: 0; color: var(--text-secondary); font-size: 17px; cursor: pointer; line-height: 1; padding: 4px; }
+.sub-close:hover { color: var(--text-primary); }
+.sub-body { padding: 22px; display: flex; flex-direction: column; gap: 14px; }
+.sub-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 22px; }
+.sub-plan { font-size: 20px; font-weight: 800; letter-spacing: -.02em; }
+.sub-status { font-size: 14px; color: var(--text-secondary); line-height: 1.6; margin-top: 6px; }
+.sub-cancel-btn { width: 100%; margin-top: 18px; padding: 12px; border-radius: 10px; border: 1px solid rgba(237,66,69,.4); background: rgba(237,66,69,.1); color: #ED4245; font-weight: 600; font-size: 14px; font-family: inherit; cursor: pointer; transition: all .2s; }
+.sub-cancel-btn:hover { background: rgba(237,66,69,.18); border-color: #ED4245; }
+.sub-cancel-btn:disabled { opacity: .6; cursor: default; }
+.sub-link { font-size: 13px; color: var(--text-muted); transition: color .2s; }
+.sub-link:hover { color: var(--text-primary); }
