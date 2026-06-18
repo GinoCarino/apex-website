@@ -99,10 +99,15 @@ a {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 24px;
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
     align-items: center;
-    justify-content: space-between;
+    gap: 16px;
 }
+
+.nav-brand { justify-self: start; }
+.nav-links { justify-self: center; }
+.nav-actions { justify-self: end; }
 
 .nav-brand {
     display: flex;
