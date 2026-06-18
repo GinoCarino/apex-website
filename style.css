@@ -1438,6 +1438,8 @@ a {
 @media (max-width: 860px) {
     .nav-toggle { display: flex; }
     .nav-dash { display: none; }
+    .nav-container { display: flex; align-items: center; gap: 10px; }
+    .nav-actions { margin-left: auto; }
     .nav-links {
         position: absolute;
         top: 100%;
