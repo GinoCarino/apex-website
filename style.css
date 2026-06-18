@@ -1441,17 +1441,16 @@ a {
     .nav-links {
         position: absolute;
         top: 100%;
-        left: 0;
-        right: 0;
+        left: 50%;
+        width: 100vw;
+        margin-left: -50vw;
         display: none;
         flex-direction: column;
         gap: 0;
-        padding: 6px 18px 16px;
-        background: rgba(8, 9, 14, 0.98);
-        -webkit-backdrop-filter: blur(20px);
-        backdrop-filter: blur(20px);
+        padding: 10px 20px 18px;
+        background: #0a0b11;
         border-bottom: 1px solid var(--border);
-        box-shadow: 0 18px 44px rgba(0, 0, 0, 0.45);
+        box-shadow: 0 18px 44px rgba(0, 0, 0, 0.55);
     }
     .nav-container.menu-open .nav-links { display: flex; }
     .nav-links a {
