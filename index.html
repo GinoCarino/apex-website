@@ -731,14 +731,25 @@
                         fetch(DASH + '/api/cancel-subscription', { method: 'POST', credentials: 'include' })
                             .then(function (r) { return r.ok; })
                             .then(function (ok) {
-                                if (ok) {
-                                    card.querySelector('.sub-status').textContent = 'Cancellation scheduled' + (d.period_end ? ' — access until ' + fmtDate(d.period_end) : '') + '. It will not renew.';
-                                    btn.remove();
-                                } else { btn.disabled = false; btn.textContent = 'Cancel failed — try again'; }
+                                if (ok) { d.cancel_at_period_end = true; render(d); }
+                                else { btn.disabled = false; btn.textContent = 'Cancel failed — try again'; }
                             })
                             .catch(function () { btn.disabled = false; btn.textContent = 'Cancel failed — try again'; });
                     });
                     card.appendChild(btn);
+                } else {
+                    var rbtn = document.createElement('button'); rbtn.className = 'sub-reactivate-btn'; rbtn.textContent = 'Reactivate subscription';
+                    rbtn.addEventListener('click', function () {
+                        rbtn.disabled = true; rbtn.textContent = 'Reactivating…';
+                        fetch(DASH + '/api/reactivate-subscription', { method: 'POST', credentials: 'include' })
+                            .then(function (r) { return r.ok; })
+                            .then(function (ok) {
+                                if (ok) { d.cancel_at_period_end = false; render(d); }
+                                else { rbtn.disabled = false; rbtn.textContent = 'Failed — try again'; }
+                            })
+                            .catch(function () { rbtn.disabled = false; rbtn.textContent = 'Failed — try again'; });
+                    });
+                    card.appendChild(rbtn);
                 }
                 body.appendChild(card);
             }

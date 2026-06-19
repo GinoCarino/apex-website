@@ -1547,5 +1547,8 @@ a {
 .sub-cancel-btn { width: 100%; margin-top: 18px; padding: 12px; border-radius: 10px; border: 1px solid rgba(237,66,69,.4); background: rgba(237,66,69,.1); color: #ED4245; font-weight: 600; font-size: 14px; font-family: inherit; cursor: pointer; transition: all .2s; }
 .sub-cancel-btn:hover { background: rgba(237,66,69,.18); border-color: #ED4245; }
 .sub-cancel-btn:disabled { opacity: .6; cursor: default; }
+.sub-reactivate-btn { width: 100%; margin-top: 18px; padding: 12px; border-radius: 10px; border: 1px solid rgba(87,242,135,.4); background: rgba(87,242,135,.12); color: #57F287; font-weight: 600; font-size: 14px; font-family: inherit; cursor: pointer; transition: all .2s; }
+.sub-reactivate-btn:hover { background: rgba(87,242,135,.2); border-color: #57F287; }
+.sub-reactivate-btn:disabled { opacity: .6; cursor: default; }
 .sub-link { font-size: 13px; color: var(--text-muted); transition: color .2s; }
 .sub-link:hover { color: var(--text-primary); }
