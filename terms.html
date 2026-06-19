@@ -72,18 +72,29 @@
     <!-- Navbar -->
     <nav class="navbar">
         <div class="nav-container">
-            <a href="index.html" class="nav-brand">
-                <div class="brand-icon">⚡</div>
-                <span class="brand-name">Apex</span>
-            </a>
-            <div class="nav-links">
+            <div class="nav-left">
+                <a href="index.html" class="nav-brand">
+                    <img class="brand-logo" src="apple-touch-icon.png" alt="">
+                    <span class="brand-name">Apex</span>
+                </a>
+                <a id="navLogin" href="https://dash.apexbot.it/login?next=https://apexbot.it/" class="nav-login">
+                    <svg width="16" height="12" viewBox="0 0 71 55" fill="currentColor" aria-hidden="true"><path d="M60.1 4.9A58.5 58.5 0 0 0 45.5.4l-.7 1.5a54 54 0 0 1 13 4 39 39 0 0 0-33.6 0 54 54 0 0 1 13-4L36.5.4A58.5 58.5 0 0 0 10.9 4.9C2.8 17 .6 28.8 1.7 40.5a59 59 0 0 0 18 9.1l1.7-2.4a39 39 0 0 1-6.1-2.9l1.5-1.2a42 42 0 0 0 35.6 0l1.5 1.2a38 38 0 0 1-6.1 2.9l1.7 2.4a59 59 0 0 0 18-9.1c1.3-13.5-2.2-25.2-9-35.6ZM24 33.3c-3.5 0-6.4-3.2-6.4-7.2s2.8-7.3 6.4-7.3 6.5 3.3 6.4 7.3c0 4-2.8 7.2-6.4 7.2Zm23.6 0c-3.5 0-6.4-3.2-6.4-7.2s2.8-7.3 6.4-7.3 6.5 3.3 6.4 7.3c0 4-2.8 7.2-6.4 7.2Z"/></svg>
+                    <span>Login</span>
+                </a>
+            </div>
+            <div class="nav-links" id="navLinks">
                 <a href="index.html#features">Features</a>
                 <a href="index.html#pricing">Pricing</a>
                 <a href="index.html#faq">FAQ</a>
-                <a href="index.html#manage">Manage Subscription</a>
                 <a href="index.html#support">Support</a>
+                <a href="https://dash.apexbot.it" class="nav-links-dash">Dashboard</a>
             </div>
-            <a href="index.html#pricing" class="nav-cta">Get Started Free</a>
+            <div class="nav-actions">
+                <a href="https://dash.apexbot.it" class="nav-dash"><span class="nav-dash-ico">⚡</span> Dashboard</a>
+                <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
         </div>
     </nav>
 
@@ -139,17 +150,163 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="footer-container">
-            <a href="index.html" class="footer-brand">
+            <div class="footer-brand">
                 <div class="brand-icon">⚡</div>
                 <span class="brand-name">Apex</span>
-            </a>
+            </div>
             <div class="footer-links">
-                <a href="index.html">Home</a>
+                <a href="https://dash.apexbot.it">Dashboard</a>
                 <a href="terms.html">Terms</a>
                 <a href="privacy.html">Privacy</a>
             </div>
             <p class="footer-copy">&copy; 2026 Apex Bot. All rights reserved.</p>
         </div>
     </footer>
+
+    <!-- Subscription drawer (slide-in da sinistra) -->
+    <div id="subOverlay" class="sub-overlay"></div>
+    <aside id="subDrawer" class="sub-drawer" aria-hidden="true" aria-label="Your subscription">
+        <div class="sub-drawer-head">
+            <span>Your subscription</span>
+            <button id="subClose" class="sub-close" aria-label="Close">✕</button>
+        </div>
+        <div id="subBody" class="sub-body"></div>
+    </aside>
+
+    <script>
+    const _nav = document.querySelector('.navbar');
+    addEventListener('scroll', () => _nav.classList.toggle('scrolled', scrollY > 10), { passive: true });
+    </script>
+    <script>
+    // Login condiviso col dashboard (mostra l'utente loggato)
+    (function () {
+        var DASH = 'https://dash.apexbot.it';
+        var login = document.getElementById('navLogin');
+        if (login) login.href = DASH + '/login?next=' + encodeURIComponent(location.href);
+        fetch(DASH + '/api/me', { credentials: 'include' })
+            .then(function (r) { return r.ok ? r.json() : null; })
+            .then(function (d) {
+                if (!d || !d.authenticated || !d.user || !login) return;
+                var u = d.user;
+                var chip = document.createElement('div');
+                chip.className = 'nav-user';
+                var av;
+                if (u.avatar) {
+                    av = document.createElement('img');
+                    av.className = 'nav-user-av';
+                    av.src = 'https://cdn.discordapp.com/avatars/' + u.uid + '/' + u.avatar + '.png?size=64';
+                    av.alt = '';
+                } else {
+                    av = document.createElement('span');
+                    av.className = 'nav-user-av nav-user-fallback';
+                    av.textContent = (u.name || '?').slice(0, 1).toUpperCase();
+                }
+                var name = document.createElement('span');
+                name.className = 'nav-user-name';
+                name.textContent = u.name || 'Utente';
+                var out = document.createElement('a');
+                out.className = 'nav-user-logout';
+                out.href = DASH + '/logout?next=' + encodeURIComponent(location.href);
+                out.title = 'Esci';
+                out.setAttribute('aria-label', 'Esci');
+                out.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>';
+                chip.appendChild(av);
+                chip.appendChild(name);
+                chip.appendChild(out);
+                av.style.cursor = 'pointer'; name.style.cursor = 'pointer';
+                var openSub = function () { if (window.openSubDrawer) window.openSubDrawer(); };
+                av.addEventListener('click', openSub);
+                name.addEventListener('click', openSub);
+                login.replaceWith(chip);
+            })
+            .catch(function () { });
+    })();
+    </script>
+    <script>
+    // Menu mobile (hamburger)
+    (function () {
+        var toggle = document.getElementById('navToggle');
+        var cont = document.querySelector('.nav-container');
+        var links = document.getElementById('navLinks');
+        if (!toggle || !cont || !links) return;
+        function close() { cont.classList.remove('menu-open'); toggle.setAttribute('aria-expanded', 'false'); }
+        toggle.addEventListener('click', function (e) {
+            e.stopPropagation();
+            var open = cont.classList.toggle('menu-open');
+            toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+        });
+        links.addEventListener('click', function (e) { if (e.target.closest('a')) close(); });
+        document.addEventListener('click', function (e) {
+            if (cont.classList.contains('menu-open') && !cont.contains(e.target)) close();
+        });
+        window.addEventListener('resize', function () { if (window.innerWidth > 860) close(); });
+    })();
+    </script>
+    <script>
+    // Drawer gestione abbonamento (cliccando sul nome profilo)
+    (function () {
+        var DASH = 'https://dash.apexbot.it';
+        var overlay = document.getElementById('subOverlay');
+        var drawer = document.getElementById('subDrawer');
+        var body = document.getElementById('subBody');
+        var closeBtn = document.getElementById('subClose');
+        if (!overlay || !drawer || !body) return;
+        function close() { overlay.classList.remove('open'); drawer.classList.remove('open'); drawer.setAttribute('aria-hidden', 'true'); }
+        overlay.addEventListener('click', close);
+        if (closeBtn) closeBtn.addEventListener('click', close);
+        document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+        function fmtDate(ts) { try { return new Date(ts * 1000).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' }); } catch (e) { return ''; } }
+        function render(d) {
+            body.innerHTML = '';
+            var card = document.createElement('div'); card.className = 'sub-card';
+            if (!d || !d.active) {
+                card.innerHTML = '<div class="sub-plan">No active plan</div><div class="sub-status">You don\'t have an active subscription.</div>';
+                var a = document.createElement('a'); a.href = 'index.html#pricing'; a.textContent = 'See plans';
+                a.className = 'btn btn-primary full-width'; a.style.marginTop = '16px';
+                card.appendChild(a); body.appendChild(card); return;
+            }
+            if (d.plan === 'lifetime') {
+                card.innerHTML = '<div class="sub-plan">Lifetime ✦</div><div class="sub-status">Lifetime access — there is nothing to renew or cancel.</div>';
+                body.appendChild(card);
+            } else {
+                var st = d.cancel_at_period_end
+                    ? ('Cancellation scheduled' + (d.period_end ? ' — access until ' + fmtDate(d.period_end) : '') + '. It will not renew.')
+                    : ('Active' + (d.period_end ? ' — renews on ' + fmtDate(d.period_end) : '') + '.');
+                card.innerHTML = '<div class="sub-plan">Premium (monthly)</div><div class="sub-status">' + st + '</div>';
+                if (!d.cancel_at_period_end) {
+                    var btn = document.createElement('button'); btn.className = 'sub-cancel-btn'; btn.textContent = 'Cancel subscription';
+                    var confirming = false;
+                    btn.addEventListener('click', function () {
+                        if (!confirming) { confirming = true; btn.textContent = 'Click again to confirm cancellation'; return; }
+                        btn.disabled = true; btn.textContent = 'Cancelling…';
+                        fetch(DASH + '/api/cancel-subscription', { method: 'POST', credentials: 'include' })
+                            .then(function (r) { return r.ok; })
+                            .then(function (ok) {
+                                if (ok) { card.querySelector('.sub-status').textContent = 'Cancellation scheduled' + (d.period_end ? ' — access until ' + fmtDate(d.period_end) : '') + '. It will not renew.'; btn.remove(); }
+                                else { btn.disabled = false; btn.textContent = 'Cancel failed — try again'; }
+                            })
+                            .catch(function () { btn.disabled = false; btn.textContent = 'Cancel failed — try again'; });
+                    });
+                    card.appendChild(btn);
+                }
+                body.appendChild(card);
+            }
+            if (d.portal_url) {
+                var p = document.createElement('a');
+                p.href = d.portal_url; p.target = '_blank'; p.rel = 'noopener'; p.className = 'sub-link';
+                p.textContent = 'Invoices & payment method (Stripe) →';
+                body.appendChild(p);
+            }
+        }
+        window.openSubDrawer = function () {
+            overlay.classList.add('open'); drawer.classList.add('open'); drawer.setAttribute('aria-hidden', 'false');
+            body.innerHTML = '<div class="sub-status">Loading…</div>';
+            fetch(DASH + '/api/subscription', { credentials: 'include' })
+                .then(function (r) { return r.ok ? r.json() : null; })
+                .then(render)
+                .catch(function () { body.innerHTML = '<div class="sub-status">Error loading subscription.</div>'; });
+        };
+    })();
+    </script>
 </body>
 </html>
