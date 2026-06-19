@@ -1522,7 +1522,11 @@ a {
 .sub-drawer {
     position: fixed; top: 0; left: 0; bottom: 0;
     width: 380px; max-width: 88vw;
-    background: #0c0e14;
+    background:
+        radial-gradient(440px 320px at 120% -6%, rgba(88, 101, 242, .20), transparent 60%),
+        radial-gradient(400px 360px at -25% 26%, rgba(139, 92, 246, .14), transparent 60%),
+        radial-gradient(520px 420px at 50% 116%, rgba(87, 242, 135, .07), transparent 60%),
+        #0b0d13;
     border-right: 1px solid var(--border-hover);
     box-shadow: 8px 0 44px rgba(0,0,0,.55);
     transform: translateX(-100%);
