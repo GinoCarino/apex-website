@@ -901,9 +901,9 @@ a {
 .pricing-card {
     background:
         linear-gradient(var(--bg-card), var(--bg-card)) padding-box,
-        linear-gradient(135deg, var(--accent), var(--accent-2)) border-box;
+        linear-gradient(160deg, var(--green), rgba(87, 242, 135, 0.5) 50%, rgba(87, 242, 135, 0.15)) border-box;
     border: 1px solid transparent;
-    box-shadow: 0 0 14px rgba(88, 101, 242, 0.22), 0 0 28px rgba(139, 92, 246, 0.12);
+    box-shadow: 0 0 16px rgba(87, 242, 135, 0.22), 0 0 30px rgba(87, 242, 135, 0.12);
     border-radius: var(--radius-xl);
     padding: 36px;
     position: relative;
