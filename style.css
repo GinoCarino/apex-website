@@ -1560,7 +1560,7 @@ a {
 .sub-close { background: transparent; border: 0; color: var(--text-secondary); font-size: 17px; cursor: pointer; line-height: 1; padding: 4px; }
 .sub-close:hover { color: var(--text-primary); }
 .sub-body { padding: 22px; display: flex; flex-direction: column; gap: 14px; }
-.sub-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 22px; }
+.sub-card { background: linear-gradient(var(--bg-card), var(--bg-card)) padding-box, linear-gradient(135deg, var(--accent), var(--accent-2)) border-box; border: 1px solid transparent; box-shadow: 0 0 14px rgba(88, 101, 242, 0.22), 0 0 28px rgba(139, 92, 246, 0.12); border-radius: var(--radius-lg); padding: 22px; }
 .sub-plan { font-size: 20px; font-weight: 800; letter-spacing: -.02em; }
 .sub-status { font-size: 14px; color: var(--text-secondary); line-height: 1.6; margin-top: 6px; }
 .sub-cancel-btn { width: 100%; margin-top: 18px; padding: 12px; border-radius: 10px; border: 1px solid rgba(237,66,69,.4); background: rgba(237,66,69,.1); color: #ED4245; font-weight: 600; font-size: 14px; font-family: inherit; cursor: pointer; transition: all .2s; }
