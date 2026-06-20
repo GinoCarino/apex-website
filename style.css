@@ -808,8 +808,11 @@ a {
 }
 
 .feature-card {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
+    background:
+        linear-gradient(var(--bg-card), var(--bg-card)) padding-box,
+        linear-gradient(135deg, var(--accent), var(--accent-2)) border-box;
+    border: 1px solid transparent;
+    box-shadow: 0 0 14px rgba(88, 101, 242, 0.22), 0 0 28px rgba(139, 92, 246, 0.12);
     border-radius: var(--radius-lg);
     padding: 30px;
     position: relative;
@@ -896,8 +899,11 @@ a {
 }
 
 .pricing-card {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
+    background:
+        linear-gradient(var(--bg-card), var(--bg-card)) padding-box,
+        linear-gradient(135deg, var(--accent), var(--accent-2)) border-box;
+    border: 1px solid transparent;
+    box-shadow: 0 0 14px rgba(88, 101, 242, 0.22), 0 0 28px rgba(139, 92, 246, 0.12);
     border-radius: var(--radius-xl);
     padding: 36px;
     position: relative;
@@ -1049,8 +1055,11 @@ a {
 }
 
 .faq-item {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
+    background:
+        linear-gradient(var(--bg-card), var(--bg-card)) padding-box,
+        linear-gradient(135deg, var(--accent), var(--accent-2)) border-box;
+    border: 1px solid transparent;
+    box-shadow: 0 0 12px rgba(88, 101, 242, 0.18), 0 0 24px rgba(139, 92, 246, 0.10);
     border-radius: var(--radius);
     overflow: hidden;
 }
@@ -1205,8 +1214,11 @@ a {
 
 .support-cmd {
     flex: 1;
-    background: var(--bg-card);
-    border: 1px solid var(--border);
+    background:
+        linear-gradient(var(--bg-card), var(--bg-card)) padding-box,
+        linear-gradient(135deg, var(--accent), var(--accent-2)) border-box;
+    border: 1px solid transparent;
+    box-shadow: 0 0 12px rgba(88, 101, 242, 0.18), 0 0 24px rgba(139, 92, 246, 0.10);
     border-radius: var(--radius);
     padding: 18px 22px;
     display: flex;

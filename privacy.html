@@ -52,8 +52,11 @@
             color: #9aa3ff;
         }
         .legal .intro {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
+            background:
+                linear-gradient(var(--bg-card), var(--bg-card)) padding-box,
+                linear-gradient(135deg, var(--accent), var(--accent-2)) border-box;
+            border: 1px solid transparent;
+            box-shadow: 0 0 14px rgba(88, 101, 242, 0.22), 0 0 28px rgba(139, 92, 246, 0.12);
             border-radius: var(--radius-lg);
             padding: 20px 24px;
             margin-bottom: 8px;
