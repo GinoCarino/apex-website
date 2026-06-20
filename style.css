@@ -163,8 +163,11 @@ a {
     align-items: center;
     gap: 9px;
     padding: 5px 8px 5px 6px;
-    background: var(--bg-tertiary);
-    border: 1px solid var(--border-hover);
+    background:
+        linear-gradient(var(--bg-tertiary), var(--bg-tertiary)) padding-box,
+        linear-gradient(135deg, var(--accent), var(--accent-2)) border-box;
+    border: 1px solid transparent;
+    box-shadow: 0 0 14px rgba(88, 101, 242, 0.30), 0 0 26px rgba(139, 92, 246, 0.16);
     border-radius: 999px;
 }
 .nav-user-av {
