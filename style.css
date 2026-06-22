@@ -436,9 +436,9 @@ a {
 }
 
 .btn-trial {
-    background: linear-gradient(135deg, #3ddc84, #2bb673);
+    background: linear-gradient(135deg, #4de87a 0%, #11a981 100%);
     color: #0b1411;
-    box-shadow: 0 4px 20px rgba(61, 220, 132, 0.28);
+    box-shadow: 0 4px 20px rgba(45, 210, 130, 0.32);
 }
 
 .btn-trial:hover {
