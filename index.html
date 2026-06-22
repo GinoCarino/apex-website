@@ -354,9 +354,9 @@
                             Priority Support
                         </li>
                     </ul>
-                    <a id="btnTrial" href="https://dash.apexbot.it/buy?plan=trial" class="btn btn-primary full-width">Start 7-day free trial</a>
+                    <a id="btnTrial" href="https://dash.apexbot.it/buy?plan=trial" class="btn btn-trial full-width">Start 7-day free trial</a>
                     <p id="trialNote" style="text-align:center;font-size:12px;color:var(--text-secondary);margin:10px 0 10px;">Free for 7 days, then €2.50/month · cancel anytime</p>
-                    <a id="btnSubscribe" href="https://dash.apexbot.it/buy?plan=premium" class="btn btn-secondary full-width">Subscribe now — no trial</a>
+                    <a id="btnSubscribe" href="https://dash.apexbot.it/buy?plan=premium" class="btn btn-primary full-width">Subscribe now</a>
                 </div>
 
                 <!-- Lifetime -->
@@ -683,22 +683,24 @@
                 //  - abbonamento attivo → "Invite now" (btnTrial), niente "Subscribe now"
                 //  - prova già usata    → btnTrial diventa "Subscribe now", nascondo il secondario
                 //  - altrimenti (nuovo) → "Start free trial" + "Subscribe now — no trial" (sempre disponibile per comprare diretto)
+                // btnTrial = VERDE, mostrato SOLO se l'utente non ha mai usato/tentato la prova e non è abbonato.
+                // btnSubscribe = VIOLA, sempre presente: "Subscribe now", oppure "Invite now" se abbonamento/prova attivi.
                 var tBtn = document.getElementById('btnTrial');
                 var tNote = document.getElementById('trialNote');
                 var sBtn = document.getElementById('btnSubscribe');
                 var sub = d.subscription;
                 if (sub && sub.active && d.invites && d.invites.bot1) {
-                    if (tBtn) { tBtn.textContent = 'Invite now'; tBtn.href = d.invites.bot1; tBtn.target = '_blank'; tBtn.rel = 'noopener'; }
+                    if (sBtn) { sBtn.textContent = 'Invite now'; sBtn.href = d.invites.bot1; sBtn.target = '_blank'; sBtn.rel = 'noopener'; }
+                    if (tBtn) tBtn.style.display = 'none';
                     if (tNote) tNote.style.display = 'none';
-                    if (sBtn) sBtn.style.display = 'none';
                     if (sub.plan === 'lifetime') {
                         var bl = document.getElementById('btnLifetime');
                         if (bl) { bl.textContent = 'Invite Apex'; bl.href = d.invites.bot1; bl.target = '_blank'; bl.rel = 'noopener'; }
                     }
                 } else if (d.trial_used) {
-                    if (tBtn) { tBtn.textContent = 'Subscribe now'; tBtn.href = DASH + '/buy?plan=premium'; }
+                    // prova già usata o tentata (rifiutata) → resta solo Subscribe now (viola)
+                    if (tBtn) tBtn.style.display = 'none';
                     if (tNote) tNote.style.display = 'none';
-                    if (sBtn) sBtn.style.display = 'none';
                 }
             })
             .catch(function () { });

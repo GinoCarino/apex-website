@@ -435,6 +435,18 @@ a {
     filter: brightness(1.05);
 }
 
+.btn-trial {
+    background: linear-gradient(135deg, #3ddc84, #2bb673);
+    color: #0b1411;
+    box-shadow: 0 4px 20px rgba(61, 220, 132, 0.28);
+}
+
+.btn-trial:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 32px rgba(61, 220, 132, 0.42);
+    filter: brightness(1.05);
+}
+
 .full-width {
     display: block;
     text-align: center;
