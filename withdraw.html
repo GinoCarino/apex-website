@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy — Apex Bot</title>
+    <title>Withdraw from contract · Recesso — Apex Bot</title>
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
@@ -122,112 +122,59 @@
     </nav>
 
     <section class="legal">
-        <a href="index.html" class="back-home">← Back to home</a>
-        <h1>Privacy Policy</h1>
-        <p class="updated">Last updated: 25 September 2026 · <a href="privacy-it.html">Versione italiana</a></p>
+        <a href="index.html" class="back-home">← Back to home · Torna alla home</a>
+        <h1>Withdraw from contract · Recesso</h1>
+        <p class="updated">Right of withdrawal within 14 days · Diritto di recesso entro 14 giorni (art. 54-bis Codice del Consumo)</p>
 
         <div class="intro">
-            <p>This Privacy Policy applies to <strong>all</strong> Apex Discord bots — <strong>Apex 1</strong> (main), <strong>Apex 2</strong> and <strong>Apex 3</strong> (music), and <strong>Apex Free</strong> (also shown as Apex 0) — to the website <strong>apexbot.it</strong> and to the dashboard <strong>dash.apexbot.it</strong>, collectively "Apex", "we", "the bot". It explains what information we collect, why, on which legal basis, how long we keep it and the rights you have, as required by Article 13 of the EU General Data Protection Regulation (GDPR) and by the Italian Privacy Code (Legislative Decree 196/2003).</p>
+            <p><strong>EN</strong> — If you bought Premium, Lifetime or started a free trial in the last <strong>14 days</strong>, you can withdraw from the contract here, without giving any reason. You will receive an acknowledgement by email with the content of your statement and the date and time we received it. We refund you within 14 days, as described in Section 10 of the <a href="terms.html">Terms of Service</a>.</p>
+            <p><strong>IT</strong> — Se negli ultimi <strong>14 giorni</strong> hai acquistato Premium o Lifetime o hai iniziato una prova gratuita, puoi recedere dal contratto qui, senza dover dare alcuna motivazione. Riceverai una ricevuta via email con il contenuto della tua dichiarazione e la data e l'ora in cui l'abbiamo ricevuta. Ti rimborsiamo entro 14 giorni, come previsto dalla Sezione 10 dei <a href="terms-it.html">Termini di Servizio</a>.</p>
         </div>
 
-        <h2>1. Data Controller</h2>
-        <p>The data controller is <strong>Federico Rocco, Via Colonnello Tommaso Masala 42, 00148 Rome (RM), Italy</strong>, operator of Apex. For any privacy question or request, email <a href="mailto:apexbotsupport@gmail.com">apexbotsupport@gmail.com</a> or use the <strong>/support</strong> command on any server where Apex is present. We have not appointed a Data Protection Officer, as it is not required for our activity.</p>
+        <div class="wd-start">
+            <button type="button" id="wdOpen" class="btn btn-primary wd-big">Withdraw from contract here · Recedi dal contratto qui</button>
+        </div>
 
-        <h2>2. Information We Collect</h2>
-        <p>Apex only collects the data needed to provide its features:</p>
-        <ul>
-            <li><strong>Discord identifiers</strong> — user IDs, server (guild) IDs, channel IDs and role IDs, used to store per-server configuration and per-user features.</li>
-            <li><strong>Server configuration</strong> — settings you set with commands or the dashboard (e.g. music role, level-up channel, AutoMod options, welcome settings, custom commands and automations).</li>
-            <li><strong>Feature data</strong> — XP and levels, economy balances and inventories, custom playlists (titles and links), giveaway entries, ticket settings, temporary voice channels and reaction-role mappings.</li>
-            <li><strong>Moderation data</strong> — warnings issued by a server's moderators (the warned user's ID, the reason written by the moderator and the date), stored for that server.</li>
-            <li><strong>Message content</strong> — read in real time only to power moderation features (see Section 4). Apex does <strong>not</strong> store the content of regular messages in a database.</li>
-            <li><strong>Server activity logs (optional)</strong> — if a server enables the logging feature, Apex records moderation-relevant events (member joins and leaves, bans, voice-channel activity, and role/channel changes) into a staff-only log channel within that same server.</li>
-            <li><strong>Dashboard login</strong> — when you log in with Discord, we receive your Discord user ID, username, avatar and the list of servers you are in (Discord OAuth2 scopes "identify" and "guilds"), to show you the servers you can manage.</li>
-            <li><strong>Uploaded files</strong> — images you upload through the dashboard (for example for welcome messages). They are stored on our server and reachable by anyone who has their link.</li>
-            <li><strong>AI Assistant (Premium)</strong> — if you choose to chat with the optional AI assistant inside a private thread, the messages and any images you send in that thread are processed by a third-party AI provider (Anthropic) to generate the replies. See Section 7.</li>
-            <li><strong>Music requests</strong> — the searches and links you ask the bot to play are sent to the music platforms to find and stream the audio.</li>
-            <li><strong>Billing information</strong> — for purchases, payment is handled by Stripe. We receive your email address, your Stripe customer and subscription IDs, the plan, the purchase date and the subscription status, and we record which servers the Premium bots were added to. Card details are processed by Stripe and never reach us.</li>
-            <li><strong>Free trial checks</strong> — to allow only one free trial per person, we store the card "fingerprint" provided by Stripe (an identifier of the card, <strong>not</strong> its number), the email address, the Discord account(s) and the server that used the trial.</li>
-            <li><strong>Refunds and withdrawals</strong> — when you request a refund (<strong>/refund</strong>) or withdraw from a contract (the <a href="withdraw.html">Withdraw from contract here</a> page or email), we store your Discord ID, name, email, the purchase concerned, the date and time of the request, the reason if you give one, and the outcome.</li>
-            <li><strong>Support requests</strong> — messages you send with <strong>/support</strong> are forwarded to our staff channel on Discord so we can reply to you.</li>
-            <li><strong>Votes (Apex Free)</strong> — to unlock vote rewards, the bot checks with Top.gg whether your Discord account voted for Apex.</li>
-        </ul>
+        <form id="wdForm" class="wd-form" hidden novalidate>
+            <h2>Your withdrawal · La tua dichiarazione di recesso</h2>
+            <p class="wd-note">I hereby give notice that I withdraw from my contract for the following service. · Con la presente notifico il recesso dal mio contratto per il seguente servizio.</p>
 
-        <h2>3. Information We Do NOT Collect</h2>
-        <ul>
-            <li>We do not collect your presence/online status or the games and activities you are playing.</li>
-            <li>We do not read or store private direct messages between users.</li>
-            <li>We do not sell, rent or share your data with advertisers, and we do not use advertising or analytics trackers.</li>
-            <li>We do not use your message content to train AI or machine-learning models.</li>
-        </ul>
+            <label>Full name · Nome e cognome *
+                <input type="text" name="name" maxlength="100" required autocomplete="name">
+            </label>
+            <label>Email for the acknowledgement · Email per la ricevuta *
+                <input type="email" name="email" maxlength="200" required autocomplete="email">
+            </label>
+            <label>Discord username or ID · Nome utente o ID Discord *
+                <input type="text" name="discord" maxlength="100" required>
+            </label>
+            <label>Service · Servizio *
+                <select name="plan" required>
+                    <option value="">— choose · scegli —</option>
+                    <option value="premium">Premium (monthly · mensile)</option>
+                    <option value="trial">Free trial · Prova gratuita</option>
+                    <option value="lifetime">Lifetime</option>
+                </select>
+            </label>
+            <label>Purchase date (if you know it) · Data di acquisto (se la conosci)
+                <input type="date" name="ordered_on">
+            </label>
+            <label>Email used at checkout, if different · Email usata al pagamento, se diversa
+                <input type="email" name="checkout_email" maxlength="200">
+            </label>
+            <label>Notes (optional) · Note (facoltative)
+                <textarea name="notes" maxlength="1000" rows="3"></textarea>
+            </label>
 
-        <h2>4. How We Use Message Content</h2>
-        <p>The <strong>Message Content</strong> permission is used strictly for moderation purposes:</p>
-        <ul>
-            <li><strong>Moderation logging</strong> — when a message is edited or deleted in a server, Apex records the previous and new text into a staff-only log channel <em>within that same Discord server</em>, so moderators can review what changed.</li>
-            <li><strong>AutoMod</strong> (Premium) — incoming messages are inspected in real time to detect spam, excessive caps, mass mentions and unwanted links, and to remove rule-breaking messages.</li>
-        </ul>
-        <p>In both cases the content is processed live to perform the action and is <strong>not</strong> stored on any server outside Discord.</p>
+            <button type="submit" id="wdConfirm" class="btn btn-primary wd-big">Confirm withdrawal · Conferma recesso</button>
+            <p id="wdErr" class="wd-err" hidden></p>
+        </form>
 
-        <h2>5. Purposes and Legal Bases</h2>
-        <ul>
-            <li><strong>Providing Apex and its features</strong> (music, leveling, economy, moderation tools, dashboard, AI assistant, support): performance of the contract with you, i.e. the Terms of Service (Art. 6(1)(b) GDPR).</li>
-            <li><strong>Selling and managing Premium, trials, refunds and purchase emails</strong>: performance of the contract (Art. 6(1)(b) GDPR).</li>
-            <li><strong>Handling withdrawals, sending the contract confirmation and keeping accounting and tax records</strong>: compliance with legal obligations under the Italian Consumer Code and tax law (Art. 6(1)(c) GDPR).</li>
-            <li><strong>Preventing abuse</strong> (one free trial per person, one 3-day refund per user, security of the service) and <strong>moderation logs and warnings requested by server staff</strong>: our legitimate interest, and the legitimate interest of the servers that use Apex, in a safe and fair service (Art. 6(1)(f) GDPR). You can object to this processing at any time (Section 10).</li>
-        </ul>
-        <p><strong>Is providing data mandatory?</strong> Discord identifiers are necessary for the bot to work, and email and payment data are necessary to buy Premium: without them we cannot provide the service or the purchase. Everything else (dashboard uploads, AI assistant, playlists, support requests) is optional.</p>
-        <p>The only automated check with an effect on you is the free-trial check: if your card, email or account has already been used for a trial, the new trial is refused automatically. You can contact us to have it reviewed by a person.</p>
+        <div id="wdDone" class="wd-done" hidden></div>
 
-        <h2>6. Cookies and Similar Technologies</h2>
-        <p>The website <strong>apexbot.it</strong> does not set cookies of its own and does not use advertising or analytics trackers; fonts and scripts are served from our own hosting, not from third-party servers. The dashboard <strong>dash.apexbot.it</strong> only uses cookies that are <strong>strictly necessary</strong> for logging in, which do not require consent:</p>
-        <ul>
-            <li><strong>apex_session</strong> — keeps you logged in (signed, lasts 7 days).</li>
-            <li><strong>apex_oauth_state</strong> — protects the Discord login against forged requests (10 minutes).</li>
-            <li><strong>apex_next</strong> — remembers which page to return to after logging in (10 minutes).</li>
-        </ul>
-
-        <h2>7. Data Sharing</h2>
-        <p>We share data only with the parties needed to operate Apex:</p>
-        <ul>
-            <li><strong>Discord</strong> — the platform the bot runs on, and the login provider for the dashboard (independent controller).</li>
-            <li><strong>Stripe</strong> — payment processing for Premium (independent controller for payment data; <a href="https://stripe.com/privacy" target="_blank" rel="noopener">Stripe Privacy Policy</a>).</li>
-            <li><strong>Anthropic</strong> — for the Premium AI Assistant only: the messages and images you send inside an AI thread are sent to Anthropic's Claude API to generate the reply (<a href="https://www.anthropic.com/legal/privacy" target="_blank" rel="noopener">Anthropic Privacy Policy</a>). This content is used solely to produce the response and is <strong>not</strong> used to train AI models.</li>
-            <li><strong>Google</strong> — email delivery (Gmail) for purchase confirmations, withdrawal receipts and support.</li>
-            <li><strong>GitHub</strong> (hosting of apexbot.it) and <strong>Cloudflare</strong> (network connection to the dashboard), which process technical data such as IP addresses to deliver the pages.</li>
-            <li><strong>Music and content platforms</strong> — YouTube, Spotify and SoundCloud (music searches and playback), Genius (lyrics), and the YouTube and Twitch APIs (social notifications configured by server staff).</li>
-            <li><strong>Top.gg</strong> — vote checks for Apex Free.</li>
-        </ul>
-        <p>We never sell your data. We may disclose data if required by law or by a competent authority.</p>
-
-        <h2>8. International Transfers</h2>
-        <p>Some of these providers are located in, or process data in, countries outside the European Economic Area (in particular the United States). In these cases the transfer is covered by an adequacy decision of the European Commission (such as the EU-U.S. Data Privacy Framework) or by the Standard Contractual Clauses adopted by the Commission, as offered by each provider. You can ask us for more information on these safeguards and for a copy of them.</p>
-
-        <h2>9. Data Storage and Retention</h2>
-        <p>Apex data is stored in files on the machine that runs the bot, in Italy, and is kept only as long as needed:</p>
-        <ul>
-            <li><strong>Server configuration, feature data and warnings</strong> — while Apex is used in the server; after the bot is removed, they are deleted within 30 days of a request.</li>
-            <li><strong>AI assistant conversations</strong> — only the last messages of an open thread are kept in memory, and they are erased when the bot restarts. Anthropic keeps API data according to its own policy.</li>
-            <li><strong>Dashboard uploads</strong> — until you remove them or ask us to delete them.</li>
-            <li><strong>Billing, purchase, refund and withdrawal records</strong> — while your Premium is active and afterwards for as long as needed to handle refunds, disputes and legal claims, and up to <strong>10 years</strong> where Italian tax and accounting law requires it. Stripe keeps payment records according to its own policy and applicable law.</li>
-            <li><strong>Free trial records</strong> — for as long as the free trial offer exists, because they are needed to apply the "one per person" limit.</li>
-        </ul>
-
-        <h2>10. Your Rights</h2>
-        <p>Under the GDPR (Articles 15-22) you have the right to access your data, have it corrected or deleted, restrict its processing, receive it in a portable format, and <strong>object</strong> to processing based on legitimate interest. To exercise these rights, email <a href="mailto:apexbotsupport@gmail.com">apexbotsupport@gmail.com</a> or use <strong>/support</strong>; we reply within one month. Removing the bot from your server stops all further data collection for that server.</p>
-        <p>You also have the right to lodge a complaint with a supervisory authority, in particular the Italian <a href="https://www.garanteprivacy.it" target="_blank" rel="noopener">Garante per la protezione dei dati personali</a> (Piazza Venezia 11, 00187 Rome) or the authority of the country where you live or work.</p>
-
-        <h2>11. Security</h2>
-        <p>We use reasonable technical measures to protect your data, such as signed login sessions, encrypted connections (HTTPS) and access limited to the operator. Payment card data is handled exclusively by Stripe.</p>
-
-        <h2>12. Children</h2>
-        <p>Apex is not directed to children under the age required to use Discord (per Discord's Terms of Service, generally 13, or higher where local law requires; in Italy the age of digital consent is 14). We do not knowingly collect data from anyone below that age. Minors may only purchase Premium with the consent of a parent or legal guardian.</p>
-
-        <h2>13. Changes to This Policy</h2>
-        <p>We may update this policy from time to time. The "Last updated" date at the top reflects the latest revision. Significant changes will be announced through the bot or our website.</p>
-
-        <h2>14. Contact</h2>
-        <p>For any privacy question or data request, email <a href="mailto:apexbotsupport@gmail.com">apexbotsupport@gmail.com</a> or use the <strong>/support</strong> command on any server where Apex is present. Our team will reply by email or directly in your Discord DMs.</p>
+        <h2>Other ways · Altri modi</h2>
+        <p>You can also withdraw by email to <a href="mailto:apexbotsupport@gmail.com">apexbotsupport@gmail.com</a> or with the model form at the end of the <a href="terms.html">Terms</a>. · Puoi recedere anche via email a <a href="mailto:apexbotsupport@gmail.com">apexbotsupport@gmail.com</a> o con il modulo tipo in fondo ai <a href="terms-it.html">Termini</a>.</p>
+        <p>To stop a monthly subscription without withdrawing, simply cancel it from your account panel: it stays active until the end of the paid period. · Per interrompere un abbonamento mensile senza recedere, basta disdirlo dal pannello del tuo account: resta attivo fino alla fine del periodo pagato.</p>
     </section>
 
     <!-- Footer -->
@@ -407,6 +354,58 @@
                 .then(render)
                 .catch(function () { body.innerHTML = '<div class="sub-status">Error loading subscription.</div>'; });
         };
+    })();
+    </script>
+    <script>
+    // Funzione di recesso (art. 54-bis Codice del Consumo): "Recedi dal contratto qui" -> modulo -> "Conferma recesso"
+    (function () {
+        var DASH = 'https://dash.apexbot.it';
+        var open = document.getElementById('wdOpen'), form = document.getElementById('wdForm');
+        var done = document.getElementById('wdDone'), err = document.getElementById('wdErr'), btn = document.getElementById('wdConfirm');
+        if (!open || !form) return;
+        var LBL = 'Confirm withdrawal · Conferma recesso';
+        open.addEventListener('click', function () {
+            form.hidden = false; open.parentElement.hidden = true;
+            var first = form.querySelector('input'); if (first) first.focus();
+        });
+        fetch(DASH + '/api/me', { credentials: 'include' })
+            .then(function (r) { return r.ok ? r.json() : null; })
+            .then(function (d) {
+                if (!d || !d.authenticated || !d.user) return;
+                var f = form.elements;
+                if (!f.discord.value) f.discord.value = (d.user.name || '') + ' (' + d.user.uid + ')';
+                if (!f.plan.value && d.subscription && d.subscription.plan) f.plan.value = d.subscription.plan === 'lifetime' ? 'lifetime' : 'premium';
+            })
+            .catch(function () { });
+        function showErr(t) { err.textContent = t; err.hidden = false; }
+        function para(t) { var p = document.createElement('p'); p.textContent = t; done.appendChild(p); }
+        form.addEventListener('submit', function (e) {
+            e.preventDefault(); err.hidden = true;
+            var f = form.elements;
+            if (!f.name.value.trim() || !f.email.value.trim() || !f.discord.value.trim() || !f.plan.value) {
+                return showErr('Please fill in the required fields (*). · Compila i campi obbligatori (*).');
+            }
+            btn.disabled = true; btn.textContent = 'Sending… · Invio in corso…';
+            fetch(DASH + '/api/withdraw', { method: 'POST', credentials: 'include', body: new URLSearchParams(new FormData(form)) })
+                .then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); })
+                .then(function (res) {
+                    if (!res.ok || !res.j || !res.j.ok) throw new Error((res.j && res.j.error) || 'error');
+                    form.hidden = true; done.hidden = false; done.textContent = '';
+                    var h = document.createElement('h2'); h.textContent = 'Withdrawal received · Recesso ricevuto'; done.appendChild(h);
+                    para('Request ' + res.j.id + ' — received on ' + res.j.received_at + '. We have sent an acknowledgement to your email with the content of your statement. We will refund you within 14 days.');
+                    para('Richiesta ' + res.j.id + ' — ricevuta il ' + res.j.received_at + '. Ti abbiamo inviato una ricevuta via email con il contenuto della tua dichiarazione. Ti rimborseremo entro 14 giorni.');
+                    if (res.j.email_sent === false) {
+                        para('The email could not be sent right now: keep this page as proof, or email apexbotsupport@gmail.com. · Non è stato possibile inviare l’email ora: conserva questa pagina come prova o scrivi a apexbotsupport@gmail.com.');
+                    }
+                })
+                .catch(function (x) {
+                    btn.disabled = false; btn.textContent = LBL;
+                    var m = String((x && x.message) || '');
+                    if (m === 'rate_limited') return showErr('Too many requests, please try again in a few minutes. · Troppe richieste, riprova tra qualche minuto.');
+                    if (m === 'invalid') return showErr('Please check the fields: the email must be valid. · Controlla i campi: l’email deve essere valida.');
+                    showErr('We could not send your withdrawal. Please email it to apexbotsupport@gmail.com: it is valid if sent within the 14 days. · Non siamo riusciti a inviare il recesso. Invialo via email a apexbotsupport@gmail.com: è valido se inviato entro i 14 giorni.');
+                });
+        });
     })();
     </script>
 </body>

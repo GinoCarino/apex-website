@@ -8,8 +8,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="512x512" href="favicon-512.png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="fonts/inter.css">
     <link rel="stylesheet" href="style.css">
     <style>
         .legal {
@@ -69,6 +68,27 @@
             font-weight: 500;
         }
         .back-home:hover { color: var(--text-primary); }
+        .legal ol {
+            margin: 8px 0 8px 22px;
+        }
+        .wd-start { margin: 28px 0 8px; }
+        .wd-big { font-size: 16px; padding: 14px 22px; }
+        .wd-form { margin-top: 24px; display: grid; gap: 14px; }
+        .wd-form label { display: grid; gap: 6px; color: var(--text-primary); font-size: 14px; font-weight: 600; }
+        .wd-form input, .wd-form select, .wd-form textarea {
+            font: inherit; font-weight: 400; color: var(--text-primary);
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: 10px; padding: 11px 13px;
+        }
+        .wd-form input:focus, .wd-form select:focus, .wd-form textarea:focus { outline: 2px solid #9aa3ff; outline-offset: 1px; }
+        .wd-note { font-style: italic; }
+        .wd-form[hidden], .wd-done[hidden], .wd-start[hidden], .wd-err[hidden] { display: none; }
+        .legal .intro p + p { margin-top: 10px; }
+        .wd-err { color: #ff8a8a !important; font-weight: 600; }
+        .wd-done {
+            margin-top: 24px; padding: 20px 24px; border-radius: var(--radius-lg);
+            background: var(--bg-card); border: 1px solid #57F287;
+        }
     </style>
 </head>
 <body>
@@ -104,18 +124,20 @@
     <section class="legal">
         <a href="index.html" class="back-home">← Back to home</a>
         <h1>Terms of Service</h1>
-        <p class="updated">Last updated: 24 September 2026</p>
+        <p class="updated">Last updated: 25 September 2026 · <a href="terms-it.html">Versione italiana</a></p>
 
         <div class="intro">
             <p>These Terms of Service ("Terms") apply to <strong>all</strong> Apex Discord bots — <strong>Apex 1</strong> (main), <strong>Apex 2</strong> and <strong>Apex 3</strong> (music), and <strong>Apex Free</strong> (also shown as Apex 0) — to the website <strong>apexbot.it</strong> and to the dashboard <strong>dash.apexbot.it</strong>, collectively "Apex", "we", "us", "the bot". By adding Apex to a Discord server, logging into the dashboard or using any of its commands, you agree to these Terms.</p>
-            <p><strong>Purchases:</strong> before paying for Premium, Lifetime or a free trial, you must tick the box on the checkout page stating that you have read and accepted these Terms and our <a href="privacy.html">Privacy Policy</a>. The version you accept at checkout governs that purchase.</p>
+            <p><strong>Purchases:</strong> before paying for Premium, Lifetime or a free trial, you must tick the box on the checkout page stating that you have read and accepted these Terms and our <a href="privacy.html">Privacy Policy</a>. The version you accept at checkout governs that purchase. If you are a consumer, nothing in these Terms limits the rights granted to you by law.</p>
+            <p><strong>Want to withdraw from a purchase?</strong> Use the <a href="withdraw.html"><strong>Withdraw from contract here</strong></a> page (see Section 10).</p>
         </div>
 
         <h2>1. Who We Are</h2>
         <p>Apex is operated by <strong>Federico Rocco, Via Colonnello Tommaso Masala 42, 00148 Rome (RM), Italy</strong>. You can contact us at <a href="mailto:apexbotsupport@gmail.com">apexbotsupport@gmail.com</a> or with the <strong>/support</strong> command on any server where Apex is present.</p>
 
         <h2>2. The Service</h2>
-        <p>Apex is a multipurpose Discord bot offering music playback (YouTube, Spotify, SoundCloud), leveling, economy, giveaways, roles, welcome messages, moderation, tickets, temporary voice channels, social notifications, custom commands, automations and a web dashboard. Premium adds features such as the AI assistant, audio filters, AutoMod and two extra music bots (Apex 2 and Apex 3). The exact list of Free and Premium features is shown on <a href="index.html#pricing">apexbot.it</a>. Features may be added, changed or removed over time, as the bot is under active development.</p>
+        <p>Apex is a multipurpose Discord bot offering music playback (YouTube, Spotify, SoundCloud), leveling, economy, giveaways, roles, welcome messages, moderation, tickets, temporary voice channels, social notifications, custom commands, automations and a web dashboard. Premium adds features such as the AI assistant, audio filters, AutoMod and two extra music bots (Apex 2 and Apex 3). The exact list of Free and Premium features is shown on <a href="index.html#pricing">apexbot.it</a> and is part of these Terms.</p>
+        <p><strong>What you need:</strong> a Discord account and a Discord server where you are allowed to add bots. Apex works with every official Discord app (desktop, web and mobile). Music playback depends on the availability of the third-party platforms it plays from. Apex does not use any technical protection measure (DRM) on your side.</p>
 
         <h2>3. Eligibility and Accounts</h2>
         <ul>
@@ -134,83 +156,114 @@
             <li>Not use the bot, or upload content through the dashboard, to distribute spam, malware, illegal content or content you do not have the right to share.</li>
             <li>Not resell Premium or try to get around its limits, including using more than one free trial (for example with other cards, emails, accounts or servers).</li>
         </ul>
-        <p>We may restrict or remove access to the bot for any server or user that violates these rules.</p>
 
-        <h2>5. Plans, Prices and Payment</h2>
+        <h2>5. Plans and Prices</h2>
         <ul>
-            <li>Apex offers a <strong>Free</strong> plan, a <strong>Premium</strong> monthly subscription (currently <strong>€2.50/month</strong>) and a one-time <strong>Lifetime</strong> purchase (currently <strong>€20</strong>). Current prices are shown on <a href="index.html#pricing">apexbot.it</a>; the amount shown on the checkout page is the total you pay.</li>
+            <li>Apex offers a <strong>Free</strong> plan, a <strong>Premium</strong> monthly subscription (<strong>€2.50/month</strong>), a <strong>7-day free trial</strong> of Premium and a one-time <strong>Lifetime</strong> purchase (<strong>€20</strong>).</li>
+            <li>All prices are in euro and are <strong>final</strong>: they include all taxes, if any, and there are no other costs or fees. The amount shown on the checkout page is the total you pay.</li>
             <li>Payments are processed securely by <strong>Stripe</strong>. We never receive or store your card details. The available payment methods are those shown at checkout.</li>
-            <li>After payment you receive the invite links for the Premium bots by Discord DM and by email. Premium applies to the servers where <strong>you</strong> (the Discord account that bought it) add the Premium bots. The bots automatically leave servers where they were added by an account without active Premium, or where the person who added them cannot be verified.</li>
-            <li>The contract is concluded when Stripe confirms your payment (or the start of your free trial).</li>
         </ul>
 
-        <h2>6. Monthly Subscription</h2>
+        <h2>6. How the Contract Is Concluded</h2>
+        <ol>
+            <li>Choose a plan on <a href="index.html#pricing">apexbot.it</a> and log in with Discord.</li>
+            <li>You are taken to the Stripe checkout page, which shows the product, its price and, for the monthly plan, the automatic renewal. Before paying you can check and correct every field you entered, or go back and change plan.</li>
+            <li>Tick the box to accept these Terms and the Privacy Policy and to ask for Premium to start immediately, then click the payment button: <strong>this places an order with an obligation to pay</strong> (for the free trial, the obligation to pay starts when the trial ends, unless you cancel before).</li>
+            <li>The contract is concluded when Stripe confirms your payment (or the start of your trial). Right after, you receive a confirmation by Discord DM and by email, with the invite links, a summary of your purchase and a copy of these Terms.</li>
+        </ol>
+        <p>The contract is available in English and Italian. We keep a record of your purchase and of every version of these Terms, and we will send you a copy on request.</p>
+
+        <h2>7. How Premium Works</h2>
+        <p>Premium applies to the servers where <strong>you</strong> (the Discord account that bought it) add the Premium bots. The bots automatically leave servers where they were added by an account without active Premium, or where the person who added them cannot be verified.</p>
+
+        <h2>8. Monthly Subscription and Free Trial</h2>
         <ul>
             <li>The monthly subscription <strong>renews automatically</strong> every month and is charged to your payment method until you cancel it.</li>
-            <li>You can cancel at any time from your account panel on <a href="index.html">apexbot.it</a> or from the <a href="index.html#manage">Stripe customer portal</a>. Cancellation takes effect at the end of the current billing period: Premium stays active until then and you will not be charged again.</li>
-            <li>If a renewal payment fails and is not recovered, or the subscription is cancelled, Premium ends and the Premium bots leave your servers. Your server settings are kept, so you can come back later.</li>
-            <li>If we change the price of the subscription, we will tell you at least <strong>30 days</strong> in advance. The new price applies from the next renewal after that date; if you do not agree, you can cancel before it applies.</li>
+            <li>You can cancel at any time, without any cost, from your account panel on <a href="index.html">apexbot.it</a> or from the <a href="index.html#manage">Stripe customer portal</a>. Cancellation takes effect at the end of the current billing period: Premium stays active until then and you will not be charged again.</li>
+            <li>If a renewal payment fails and is not recovered, Premium ends and the Premium bots leave your servers. Your server settings are kept, so you can come back later.</li>
+            <li>If we change the price of the subscription, we will tell you by email or Discord DM at least <strong>30 days</strong> in advance. The new price applies only from the first renewal after that date, and you can cancel before it applies.</li>
+            <li><strong>Free trial:</strong> new customers may get a 7-day free trial of Premium; a valid payment method is required. <strong>If you do not cancel before the trial ends, it automatically becomes the paid monthly subscription (€2.50/month)</strong>, charged at the end of the trial. Cancelling during the trial costs nothing.</li>
+            <li>The free trial is limited to <strong>one per person</strong> (one per payment card, email address and Discord account) and one per Discord server, and it covers a single server. To enforce this we automatically check whether the card, email or account has already been used for a trial (see our <a href="privacy.html">Privacy Policy</a>). If a trial is not allowed, it is cancelled immediately without any charge; if you think this is a mistake, contact us and a person will review it.</li>
         </ul>
 
-        <h2>7. Free Trial</h2>
+        <h2>9. Lifetime</h2>
         <ul>
-            <li>New customers may get a <strong>7-day free trial</strong> of Premium. A valid payment method is required to start it.</li>
-            <li><strong>If you do not cancel before the trial ends, it automatically becomes a paid monthly subscription</strong> at the current price (€2.50/month), charged at the end of the trial. You can cancel at any time during the trial and you will not be charged.</li>
-            <li>The free trial is limited to <strong>one per person</strong>: one per payment card, per email address and per Discord account, and one per Discord server. A trial covers a <strong>single server</strong>.</li>
-            <li>To enforce these limits we automatically check whether the card, email or account has already been used for a trial (see our <a href="privacy.html">Privacy Policy</a>). If a trial is not allowed, it is cancelled immediately without any charge and the bot leaves the server. If you think this is a mistake, contact us.</li>
-        </ul>
-
-        <h2>8. Lifetime</h2>
-        <ul>
-            <li>Lifetime is a one-time payment that gives access to the Premium features <strong>for as long as Apex is operated</strong> (the lifetime of the service, not of the buyer), including new Premium features added in the future.</li>
+            <li>Lifetime is a one-time payment that gives access to the Premium features <strong>for as long as Apex is operated</strong> (the lifetime of the service, not of the buyer), including new Premium features added in the future. There is no renewal.</li>
             <li>Lifetime is linked to the Discord account used at checkout and cannot be transferred.</li>
-            <li>If we ever decide to permanently discontinue Apex, we will announce it at least <strong>30 days</strong> in advance on the website and through the bot.</li>
+            <li>If we permanently discontinue Apex, we will tell you at least <strong>30 days</strong> in advance and refund the <strong>unused part</strong> of your Lifetime purchase (see Section 11).</li>
         </ul>
 
-        <h2>9. Refunds and Right of Withdrawal</h2>
+        <h2>10. Right of Withdrawal (14 days)</h2>
+        <p>If you are a consumer, you have the right to withdraw from the contract within <strong>14 days</strong> without giving any reason. The 14 days start from the day the contract is concluded (the purchase, or the start of the free trial).</p>
         <ul>
-            <li><strong>3-day refund:</strong> you may request a full refund within <strong>3 days</strong> of a purchase using the <strong>/refund</strong> command, limited to <strong>one refund per user</strong>. When a refund is granted, the Premium access paid with that purchase ends.</li>
-            <li><strong>Monthly subscription (EU/EEA/UK consumers):</strong> you have a legal right to withdraw within <strong>14 days</strong> of the purchase, without giving any reason. By ticking the box at checkout you ask for Premium to start immediately: if you withdraw, you are refunded the amount paid <strong>minus the part corresponding to the days already used</strong>. For the free trial, the 14 days start when the trial starts, and cancelling during the trial costs nothing.</li>
-            <li><strong>Lifetime:</strong> Lifetime is digital content supplied immediately. By ticking the box at checkout you expressly ask for immediate access and acknowledge that you <strong>lose your 14-day right of withdrawal once Lifetime is activated</strong>. The 3-day refund above still applies.</li>
-            <li>To withdraw or ask for a refund, use <strong>/refund</strong> or send a clear statement to <a href="mailto:apexbotsupport@gmail.com">apexbotsupport@gmail.com</a>. Refunds are made through Stripe to the original payment method.</li>
-            <li>Outside these cases payments are non-refundable, except where a refund is required by applicable law. Nothing in these Terms limits the rights you have as a consumer under the law of your country.</li>
+            <li><strong>How to withdraw:</strong> use the <a href="withdraw.html"><strong>Withdraw from contract here</strong></a> page, which is always available on our website; or send us a clear statement by email to <a href="mailto:apexbotsupport@gmail.com">apexbotsupport@gmail.com</a>; or use the model withdrawal form at the end of these Terms (its use is not mandatory). It is enough to send your statement before the 14 days expire. We confirm receipt without delay by email.</li>
+            <li><strong>Immediate start:</strong> Premium is a digital service. By ticking the box at checkout you ask for it to start immediately, during the withdrawal period. If you then withdraw, you pay only an amount proportional to the service already provided until you told us you were withdrawing: for the monthly plan, the price multiplied by the days used and divided by the days of the billing period; for Lifetime, €2.50 for every 30 days used (proportionally for fewer days). Days of free trial are never charged.</li>
+            <li><strong>Refund:</strong> we refund everything you paid, minus that proportional amount, <strong>within 14 days</strong> from the day we receive your withdrawal, using the same payment method you used, at no cost for you. When you withdraw, the Premium access paid with that purchase ends.</li>
         </ul>
 
-        <h2>10. Availability</h2>
-        <p>Apex is provided on an "as is" and "as available" basis. We aim for high uptime but do not guarantee the service will be uninterrupted, error-free, or always available. Music sources and third-party platforms (e.g. YouTube, Spotify) may change or restrict access at any time, which can affect playback. Temporary interruptions for maintenance, updates or causes outside our control do not give right to a refund, except where required by law.</p>
+        <h2>11. Refunds</h2>
+        <ul>
+            <li><strong>3-day full refund:</strong> in addition to your legal rights, you may request a <strong>full</strong> refund (with no deduction) within <strong>3 days</strong> of a purchase using the <strong>/refund</strong> command, limited to <strong>one per user</strong>. The Premium access paid with that purchase ends when the refund is granted.</li>
+            <li><strong>Unused part of Lifetime:</strong> where these Terms provide a refund of the "unused part" of Lifetime, it is equal to the amount paid minus €2.50 for every 30 days of Premium already used (never below zero).</li>
+            <li>Outside these cases and those provided by law (for example the legal guarantee in Section 13), payments are non-refundable. Refunds are made through Stripe to the original payment method.</li>
+        </ul>
 
-        <h2>11. Third-Party Services</h2>
-        <p>Apex runs on Discord and relies on third-party services such as Stripe, YouTube, Spotify, SoundCloud and Anthropic. Their use is also subject to their own terms. We are not responsible for the content, availability or decisions of these third parties.</p>
+        <h2>12. Changes to the Service</h2>
+        <p>We may change, improve or replace features of Apex for valid reasons, such as security, legal requirements, changes made by Discord or by the music platforms, technical improvements or the addition of new features. Changes are made at no extra cost for you. If a change negatively affects your access to or use of Premium in a way that is more than minor, we will tell you in advance by email or Discord DM, and you can end the contract free of charge within <strong>30 days</strong> of the notice or of the change (whichever is later). In that case we refund the unused part: for the monthly plan, the days not used of the current billing period; for Lifetime, as described in Section 11.</p>
 
-        <h2>12. AI Assistant</h2>
+        <h2>13. Legal Guarantee of Conformity</h2>
+        <p>If you are a consumer, you benefit from the legal guarantee of conformity for digital services (articles 135-octies and following of the Italian Consumer Code, Legislative Decree 206/2005): we are responsible for any lack of conformity of Premium that occurs during the whole period it is supplied. If Premium does not work as described, contact us: we will bring it into conformity free of charge within a reasonable time. If that is not possible, is not done within a reasonable time, or the defect is serious, you can ask for a proportionate price reduction or end the contract and get a refund for the period in which the service was not in conformity. The Free plan is provided free of charge "as is".</p>
+
+        <h2>14. Availability and Third-Party Services</h2>
+        <p>We work to keep Apex online, but short interruptions can happen for maintenance, updates or causes outside our control. Apex runs on Discord and relies on third-party services such as Stripe, YouTube, Spotify, SoundCloud and Anthropic, whose use is also subject to their own terms; these platforms may change or restrict access at any time, which can affect some features such as music playback. Your rights under the legal guarantee (Section 13) are not affected.</p>
+
+        <h2>15. AI Assistant</h2>
         <p>The Premium AI assistant generates answers automatically. Answers may be inaccurate, incomplete or out of date: do not rely on them for medical, legal, financial or other professional advice, and do not send sensitive personal data to the assistant. You are responsible for how you use its answers.</p>
 
-        <h2>13. Your Content</h2>
+        <h2>16. Your Content</h2>
         <p>You keep all rights to the content you add to Apex (for example images uploaded through the dashboard, custom commands, messages, playlists and settings). You give us permission to store, process and display it only as needed to run Apex for you and your server. You are responsible for that content and confirm you have the right to use it. Images uploaded through the dashboard are reachable by anyone who has their link.</p>
 
-        <h2>14. Intellectual Property</h2>
+        <h2>17. Intellectual Property</h2>
         <p>The Apex name, logo, bots, website, dashboard and their software belong to us. You receive a personal, non-exclusive, non-transferable right to use Apex according to these Terms; no other rights are granted.</p>
 
-        <h2>15. Limitation of Liability</h2>
-        <p>To the maximum extent permitted by law, Apex and its operators are not liable for any indirect, incidental or consequential damages, loss of data, or loss of access arising from the use or inability to use the bot. If you are not satisfied with the service, you can stop using it, remove the bot from your server and cancel your subscription at any time. Nothing in these Terms excludes or limits liability that cannot be excluded or limited by law, including liability for intent or gross negligence, or your statutory rights as a consumer.</p>
+        <h2>18. Liability</h2>
+        <p>We are responsible for providing Apex as described in these Terms. Our liability is limited to damages that were a foreseeable consequence of our breach when the contract was concluded (article 1225 of the Italian Civil Code). We are not liable for interruptions or problems caused by Discord, by music platforms or by other third parties outside our control, or by force majeure. These limits do not apply in case of intent or gross negligence (article 1229 of the Italian Civil Code), to damage to life or health, or where the law does not allow them, and they never limit your rights as a consumer, including the legal guarantee of conformity.</p>
 
-        <h2>16. Suspension and Termination</h2>
-        <p>You may stop using Apex at any time by removing it from your server and, if you have one, cancelling your subscription. We may suspend or terminate access to the bot, including Premium features, for any server or user that seriously breaches these Terms or abuses the service. In that case paid amounts are not refunded, except where required by law.</p>
+        <h2>19. Suspension and Termination</h2>
+        <ul>
+            <li>You may stop using Apex at any time by removing it from your server and, if you have one, cancelling your subscription (Section 8).</li>
+            <li>We may terminate your Premium with immediate effect, under article 1456 of the Italian Civil Code, if you seriously breach Section 4 (for example fraud, illegal use, attacks on our infrastructure, resale, or circumventing the free-trial limits). We will tell you the reason. In that case the monthly subscription is not charged again and the current billing period is not refunded; for Lifetime, we refund the unused part (Section 11), without prejudice to our right to compensation for any damage caused.</li>
+            <li>For less serious breaches we may restrict access to specific features or servers, after warning you when possible.</li>
+        </ul>
 
-        <h2>17. Privacy</h2>
+        <h2>20. Privacy</h2>
         <p>Your use of Apex is also governed by our <a href="privacy.html">Privacy Policy</a>, which explains what data we collect and how it is used.</p>
 
-        <h2>18. Changes to These Terms</h2>
-        <p>We may update these Terms from time to time. The "Last updated" date above reflects the latest revision. Important changes will be announced on the website or through the bot at least <strong>15 days</strong> before they take effect. If you do not agree, you can stop using Apex and cancel your subscription before the changes take effect; continued use after that date means you accept the updated Terms. Each purchase is governed by the version of the Terms you accepted at checkout.</p>
+        <h2>21. Changes to These Terms</h2>
+        <p>We may update these Terms for valid reasons, such as changes in the law, in the service or in the platforms Apex depends on. The "Last updated" date above reflects the latest revision, and every previous version stays archived. We will tell paying customers about important changes by email or Discord DM at least <strong>30 days</strong> before they take effect. If you do not agree, you can end the contract before that date: we refund the unused part (for the monthly plan, the days not used of the current period; for Lifetime, as described in Section 11). Each purchase remains governed by the version of the Terms accepted at checkout, unless you accept the new version.</p>
 
-        <h2>19. Governing Law and Disputes</h2>
-        <p>These Terms are governed by Italian law. If you are a consumer, you also keep the protection of the mandatory rules of the country where you live, and you may bring a claim before the courts of that country. We will always try to solve any problem amicably first: contact us before starting any dispute.</p>
+        <h2>22. Governing Law, Complaints and Disputes</h2>
+        <p>These Terms are governed by Italian law. If you are a consumer, you also keep the protection of the mandatory rules of the country where you live. If you are a consumer residing in Italy, the competent court is the one of the place where you live (article 66-bis of the Consumer Code); if you live in another EU country, you may bring a claim before the courts of your country.</p>
+        <p>For any complaint, write to <a href="mailto:apexbotsupport@gmail.com">apexbotsupport@gmail.com</a>: we reply as soon as possible and in any case within 14 days. We have not joined any out-of-court dispute resolution (ADR) body and we are not subject to any code of conduct.</p>
 
-        <h2>20. General</h2>
-        <p>If any part of these Terms is found invalid, the rest remains in force. Our failure to enforce a right is not a waiver of that right. These Terms, together with the Privacy Policy, are the entire agreement between you and us about Apex.</p>
+        <h2>23. General</h2>
+        <p>If any part of these Terms is found invalid, the rest remains in force. Our failure to enforce a right is not a waiver of that right. These Terms, together with the Privacy Policy, are the entire agreement between you and us about Apex. The English and Italian versions are equally valid; in case of discrepancy, the version more favourable to the consumer prevails.</p>
 
-        <h2>21. Contact</h2>
+        <h2>24. Contact</h2>
         <p>For any question about these Terms, email <a href="mailto:apexbotsupport@gmail.com">apexbotsupport@gmail.com</a> or use the <strong>/support</strong> command on any server where Apex is present.</p>
+
+        <h2>Model Withdrawal Form</h2>
+        <p><em>(Complete and return this form only if you wish to withdraw from the contract. You can also simply use the <a href="withdraw.html">Withdraw from contract here</a> page.)</em></p>
+        <ul>
+            <li>To: Federico Rocco (Apex), Via Colonnello Tommaso Masala 42, 00148 Rome (RM), Italy — apexbotsupport@gmail.com</li>
+            <li>I/We (*) hereby give notice that I/We (*) withdraw from my/our (*) contract for the provision of the following service (*): ______</li>
+            <li>Ordered on (*) / received on (*): ______</li>
+            <li>Name of consumer(s): ______</li>
+            <li>Address of consumer(s): ______</li>
+            <li>Signature of consumer(s) (only if this form is notified on paper): ______</li>
+            <li>Date: ______</li>
+        </ul>
+        <p><em>(*) Delete as appropriate.</em></p>
     </section>
 
     <!-- Footer -->
@@ -224,6 +277,7 @@
                 <a href="https://dash.apexbot.it">Dashboard</a>
                 <a href="terms.html">Terms</a>
                 <a href="privacy.html">Privacy</a>
+                <a href="withdraw.html">Withdraw from contract here</a>
             </div>
             <p class="footer-copy">&copy; 2026 Apex Bot. All rights reserved.</p>
         </div>
@@ -376,6 +430,10 @@
                 p.textContent = 'Invoices & payment method (Stripe) →';
                 body.appendChild(p);
             }
+            var wd = document.createElement('a');
+            wd.href = 'withdraw.html'; wd.className = 'sub-link';
+            wd.textContent = 'Withdraw from contract here (within 14 days) →';
+            body.appendChild(wd);
         }
         window.openSubDrawer = function () {
             overlay.classList.add('open'); drawer.classList.add('open'); drawer.setAttribute('aria-hidden', 'false');
