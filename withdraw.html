@@ -127,54 +127,38 @@
         <p class="updated">Right of withdrawal within 14 days · Diritto di recesso entro 14 giorni (art. 54-bis Codice del Consumo)</p>
 
         <div class="intro">
-            <p><strong>EN</strong> — If you bought Premium, Lifetime or started a free trial in the last <strong>14 days</strong>, you can withdraw from the contract here, without giving any reason. You will receive an acknowledgement by email with the content of your statement and the date and time we received it. We refund you within 14 days, as described in Section 10 of the <a href="terms.html">Terms of Service</a>.</p>
-            <p><strong>IT</strong> — Se negli ultimi <strong>14 giorni</strong> hai acquistato Premium o Lifetime o hai iniziato una prova gratuita, puoi recedere dal contratto qui, senza dover dare alcuna motivazione. Riceverai una ricevuta via email con il contenuto della tua dichiarazione e la data e l'ora in cui l'abbiamo ricevuta. Ti rimborsiamo entro 14 giorni, come previsto dalla Sezione 10 dei <a href="terms-it.html">Termini di Servizio</a>.</p>
+            <p><strong>EN</strong> — If you bought Premium or Lifetime, or started a free trial, in the last <strong>14 days</strong>, you can withdraw here without giving any reason. You must be <strong>logged in with the Discord account used for the purchase</strong>, so we know exactly whom to refund. The refund is full (Section 10 of the <a href="terms.html">Terms</a>). You will receive an acknowledgement by email and the refund within 14 days.</p>
+            <p><strong>IT</strong> — Se negli ultimi <strong>14 giorni</strong> hai acquistato Premium o Lifetime, o hai iniziato una prova gratuita, puoi recedere qui senza dare alcuna motivazione. Devi aver fatto <strong>l'accesso con l'account Discord usato per l'acquisto</strong>, così sappiamo con certezza chi rimborsare. Il rimborso è totale (Sezione 10 dei <a href="terms-it.html">Termini</a>). Riceverai una ricevuta via email e il rimborso entro 14 giorni.</p>
         </div>
 
         <div class="wd-start">
             <button type="button" id="wdOpen" class="btn btn-primary wd-big">Withdraw from contract here · Recedi dal contratto qui</button>
         </div>
 
+        <div id="wdLogin" class="wd-done" hidden>
+            <p>To withdraw you must log in with the Discord account you used for the purchase. · Per recedere devi accedere con l'account Discord usato per l'acquisto.</p>
+            <p><a id="wdLoginLink" class="btn btn-primary" href="https://dash.apexbot.it/login?next=https%3A%2F%2Fapexbot.it%2Fwithdraw.html">Log in with Discord · Accedi con Discord</a></p>
+        </div>
+
         <form id="wdForm" class="wd-form" hidden novalidate>
             <h2>Your withdrawal · La tua dichiarazione di recesso</h2>
-            <p class="wd-note">I hereby give notice that I withdraw from my contract for the following service. · Con la presente notifico il recesso dal mio contratto per il seguente servizio.</p>
-
-            <label>Full name · Nome e cognome *
-                <input type="text" name="name" maxlength="100" required autocomplete="name">
-            </label>
-            <label>Email for the acknowledgement · Email per la ricevuta *
+            <p class="wd-note">I hereby give notice that I withdraw from my contract for Apex Premium. · Con la presente notifico il recesso dal mio contratto per Apex Premium.</p>
+            <p class="wd-account" id="wdAccount"></p>
+            <label>Email for the receipt · Email per la ricevuta *
                 <input type="email" name="email" maxlength="200" required autocomplete="email">
             </label>
-            <label>Discord username or ID · Nome utente o ID Discord *
-                <input type="text" name="discord" maxlength="100" required>
-            </label>
-            <label>Service · Servizio *
-                <select name="plan" required>
-                    <option value="">— choose · scegli —</option>
-                    <option value="premium">Premium (monthly · mensile)</option>
-                    <option value="trial">Free trial · Prova gratuita</option>
-                    <option value="lifetime">Lifetime</option>
-                </select>
-            </label>
-            <label>Purchase date (if you know it) · Data di acquisto (se la conosci)
-                <input type="date" name="ordered_on">
-            </label>
-            <label>Email used at checkout, if different · Email usata al pagamento, se diversa
-                <input type="email" name="checkout_email" maxlength="200">
-            </label>
-            <label>Notes (optional) · Note (facoltative)
+            <label>Reason (optional) · Motivo (facoltativo)
                 <textarea name="notes" maxlength="1000" rows="3"></textarea>
             </label>
-
             <button type="submit" id="wdConfirm" class="btn btn-primary wd-big">Confirm withdrawal · Conferma recesso</button>
             <p id="wdErr" class="wd-err" hidden></p>
         </form>
 
         <div id="wdDone" class="wd-done" hidden></div>
 
-        <h2>Other ways · Altri modi</h2>
-        <p>You can also withdraw by email to <a href="mailto:apexbotsupport@gmail.com">apexbotsupport@gmail.com</a> or with the model form at the end of the <a href="terms.html">Terms</a>. · Puoi recedere anche via email a <a href="mailto:apexbotsupport@gmail.com">apexbotsupport@gmail.com</a> o con il modulo tipo in fondo ai <a href="terms-it.html">Termini</a>.</p>
-        <p>To stop a monthly subscription without withdrawing, simply cancel it from your account panel: it stays active until the end of the paid period. · Per interrompere un abbonamento mensile senza recedere, basta disdirlo dal pannello del tuo account: resta attivo fino alla fine del periodo pagato.</p>
+        <h2>On Discord · Su Discord</h2>
+        <p>You can do the same with the <strong>/refund</strong> command in any server where Apex is present. · Puoi fare lo stesso con il comando <strong>/refund</strong> in qualunque server in cui è presente Apex.</p>
+        <p>To stop a monthly subscription without a refund, simply cancel it from your account panel: it stays active until the end of the paid period. · Per interrompere un abbonamento mensile senza rimborso basta disdirlo dal pannello del tuo account: resta attivo fino alla fine del periodo pagato.</p>
     </section>
 
     <!-- Footer -->
@@ -357,34 +341,37 @@
     })();
     </script>
     <script>
-    // Funzione di recesso (art. 54-bis Codice del Consumo): "Recedi dal contratto qui" -> modulo -> "Conferma recesso"
+    // Funzione di recesso (art. 54-bis Codice del Consumo): "Recedi dal contratto qui" -> "Conferma recesso".
+    // Solo da loggati con Discord: chi rimborsare lo dice l'account, non un campo scritto a mano.
     (function () {
         var DASH = 'https://dash.apexbot.it';
         var open = document.getElementById('wdOpen'), form = document.getElementById('wdForm');
+        var login = document.getElementById('wdLogin'), acc = document.getElementById('wdAccount');
         var done = document.getElementById('wdDone'), err = document.getElementById('wdErr'), btn = document.getElementById('wdConfirm');
         if (!open || !form) return;
         var LBL = 'Confirm withdrawal · Conferma recesso';
-        open.addEventListener('click', function () {
-            form.hidden = false; open.parentElement.hidden = true;
-            var first = form.querySelector('input'); if (first) first.focus();
-        });
+        var me = null;
+        var link = document.getElementById('wdLoginLink');
+        if (link) link.href = DASH + '/login?next=' + encodeURIComponent(location.href.split('#')[0]);
         fetch(DASH + '/api/me', { credentials: 'include' })
             .then(function (r) { return r.ok ? r.json() : null; })
-            .then(function (d) {
-                if (!d || !d.authenticated || !d.user) return;
-                var f = form.elements;
-                if (!f.discord.value) f.discord.value = (d.user.name || '') + ' (' + d.user.uid + ')';
-                if (!f.plan.value && d.subscription && d.subscription.plan) f.plan.value = d.subscription.plan === 'lifetime' ? 'lifetime' : 'premium';
-            })
+            .then(function (d) { if (d && d.authenticated && d.user) me = d; })
             .catch(function () { });
+        open.addEventListener('click', function () {
+            open.parentElement.hidden = true;
+            if (!me) { login.hidden = false; return; }
+            var piano = me.subscription && me.subscription.plan
+                ? (me.subscription.plan === 'lifetime' ? 'Lifetime' : 'Premium')
+                : 'no purchase found on this account · nessun acquisto trovato su questo account';
+            acc.textContent = 'Account: ' + (me.user.name || '') + ' (' + me.user.uid + ') · ' + piano;
+            form.hidden = false;
+            var first = form.querySelector('input'); if (first) first.focus();
+        });
         function showErr(t) { err.textContent = t; err.hidden = false; }
         function para(t) { var p = document.createElement('p'); p.textContent = t; done.appendChild(p); }
         form.addEventListener('submit', function (e) {
             e.preventDefault(); err.hidden = true;
-            var f = form.elements;
-            if (!f.name.value.trim() || !f.email.value.trim() || !f.discord.value.trim() || !f.plan.value) {
-                return showErr('Please fill in the required fields (*). · Compila i campi obbligatori (*).');
-            }
+            if (!form.elements.email.value.trim()) return showErr('Please enter your email for the receipt. · Inserisci l’email per la ricevuta.');
             btn.disabled = true; btn.textContent = 'Sending… · Invio in corso…';
             fetch(DASH + '/api/withdraw', { method: 'POST', credentials: 'include', body: new URLSearchParams(new FormData(form)) })
                 .then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); })
@@ -392,18 +379,19 @@
                     if (!res.ok || !res.j || !res.j.ok) throw new Error((res.j && res.j.error) || 'error');
                     form.hidden = true; done.hidden = false; done.textContent = '';
                     var h = document.createElement('h2'); h.textContent = 'Withdrawal received · Recesso ricevuto'; done.appendChild(h);
-                    para('Request ' + res.j.id + ' — received on ' + res.j.received_at + '. We have sent an acknowledgement to your email with the content of your statement. We will refund you within 14 days.');
+                    para('Request ' + res.j.id + ' — received on ' + res.j.received_at + '. We have emailed you an acknowledgement with the content of your statement. We will refund you within 14 days.');
                     para('Richiesta ' + res.j.id + ' — ricevuta il ' + res.j.received_at + '. Ti abbiamo inviato una ricevuta via email con il contenuto della tua dichiarazione. Ti rimborseremo entro 14 giorni.');
                     if (res.j.email_sent === false) {
-                        para('The email could not be sent right now: keep this page as proof, or email apexbotsupport@gmail.com. · Non è stato possibile inviare l’email ora: conserva questa pagina come prova o scrivi a apexbotsupport@gmail.com.');
+                        para('The email could not be sent right now: keep this page as proof. · Non è stato possibile inviare l’email ora: conserva questa pagina come prova.');
                     }
                 })
                 .catch(function (x) {
                     btn.disabled = false; btn.textContent = LBL;
                     var m = String((x && x.message) || '');
+                    if (m === 'unauthorized') { form.hidden = true; login.hidden = false; return; }
                     if (m === 'rate_limited') return showErr('Too many requests, please try again in a few minutes. · Troppe richieste, riprova tra qualche minuto.');
-                    if (m === 'invalid') return showErr('Please check the fields: the email must be valid. · Controlla i campi: l’email deve essere valida.');
-                    showErr('We could not send your withdrawal. Please email it to apexbotsupport@gmail.com: it is valid if sent within the 14 days. · Non siamo riusciti a inviare il recesso. Invialo via email a apexbotsupport@gmail.com: è valido se inviato entro i 14 giorni.');
+                    if (m === 'invalid') return showErr('Please check the email address. · Controlla l’indirizzo email.');
+                    showErr('We could not send your withdrawal right now. Please use the /refund command on Discord. · Non siamo riusciti a inviare il recesso. Usa il comando /refund su Discord.');
                 });
         });
     })();
